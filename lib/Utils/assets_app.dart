@@ -1,6 +1,6 @@
 class PathImage {
   /// images -- avatar ------------ *
-  static const String avatar1 = 'assets/images/avatar/gamer1.svg';
+  static const String avatar1 = 'assets/images/avatars/gamer1.svg';
   static const String avatar2 = 'assets/images/avatar/gamer2.svg';
   static const String avatar3 = 'assets/images/avatar/gamer3.svg';
   static const String avatar4 = 'assets/images/avatar/gamer4.svg';

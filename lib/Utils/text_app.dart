@@ -14,6 +14,10 @@ class TextApp {
     fontSize: 16,
     fontWeight: FontWeight.normal,
     color: ColorApp.whiteColor,
+  );static final TextStyle regular16primaryWallow = GoogleFonts.roboto(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: ColorApp.primaryWallow,
   );static final TextStyle medium36White = GoogleFonts.inter(
     fontSize: 36,
     fontWeight: FontWeight.w500,

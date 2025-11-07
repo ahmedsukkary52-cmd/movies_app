@@ -106,6 +106,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Welcome to our app!'**
   String get welcomeMessage;
+
+  /// No description provided for @update_profile_pick_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Avatar'**
+  String get update_profile_pick_avatar;
+
+  /// No description provided for @update_profile_reset_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get update_profile_reset_password;
+
+  /// No description provided for @update_profile_delete_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get update_profile_delete_account;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

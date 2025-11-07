@@ -13,4 +13,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcomeMessage => 'Welcome to our app!';
+
+  @override
+  String get update_profile_pick_avatar => 'Pick Avatar';
+
+  @override
+  String get update_profile_reset_password => 'Reset Password';
+
+  @override
+  String get update_profile_delete_account => 'Delete Account';
 }
