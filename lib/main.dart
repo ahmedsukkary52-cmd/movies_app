@@ -4,11 +4,14 @@ import 'package:team_flutter_6_movie_app/Bloc/local_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/login/login.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:team_flutter_6_movie_app/ui/reset_password_widget/forget_password_screen.dart';
+import 'package:team_flutter_6_movie_app/ui/reset_password_widget/reset_passsword_screen.dart';
 import 'Bloc/local_state.dart';
 import 'l10n/app_localizations.dart';
 
 void main() {
-  runApp(BlocProvider(create: (context) => LocaleBloc(), child: MoviesApp()));
+  runApp(
+      BlocProvider(create: (context) => LocaleBloc(), child: MoviesApp()));
 }
 
 class MoviesApp extends StatelessWidget {
@@ -20,8 +23,14 @@ class MoviesApp extends StatelessWidget {
       builder: (context, state) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: RoutesApp.loginRouteName,
-          routes: {RoutesApp.loginRouteName: (context) => Login()},
+          initialRoute:RoutesApp.forgetPasswordScreen,
+           // RoutesApp.loginRouteName,
+          routes: {
+            RoutesApp.loginRouteName: (context) => Login(),
+        RoutesApp.forgetPasswordScreen: (context) => ForgetPasswordScreen(),
+            RoutesApp.resetPasswordScreen: (context) => ResetPassswordScreen(),
+
+          },
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
