@@ -32,7 +32,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
             centerTitle: true,
             title: Text(
               local!.update_profile_pick_avatar,
-              style: TextApp.regular16primaryWallow,
+              style: TextApp.regular16Wallow,
             ),
           ),
           body: Padding(

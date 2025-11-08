@@ -31,6 +31,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get email => 'Email';
 
   @override
+  String get old_pass => ' Enter Old password';
+
+  @override
+  String get new_pass => ' Enter New password';
+
+  @override
+  String get please_enter_password => 'Please enter your password';
+
+  @override
+  String get password_too_short => 'Password must be at least 6 characters long';
+
+  @override
+  String get password_not_match => 'Passwords do not match';
+
+  @override
+  String get please_enter_email => 'Please enter your email address';
+
+  @override
+  String get please_enter_valid_email => 'Please enter a valid email address';
+
+  @override
+  String get new_pass_check => 'Pls Enter New password again ';
+
+  @override
   String get password => 'Password';
 
   @override

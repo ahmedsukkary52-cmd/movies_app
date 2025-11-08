@@ -137,6 +137,54 @@ abstract class AppLocalizations {
   /// **'Email'**
   String get email;
 
+  /// No description provided for @old_pass.
+  ///
+  /// In en, this message translates to:
+  /// **' Enter Old password'**
+  String get old_pass;
+
+  /// No description provided for @new_pass.
+  ///
+  /// In en, this message translates to:
+  /// **' Enter New password'**
+  String get new_pass;
+
+  /// No description provided for @please_enter_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your password'**
+  String get please_enter_password;
+
+  /// No description provided for @password_too_short.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters long'**
+  String get password_too_short;
+
+  /// No description provided for @password_not_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get password_not_match;
+
+  /// No description provided for @please_enter_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email address'**
+  String get please_enter_email;
+
+  /// No description provided for @please_enter_valid_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid email address'**
+  String get please_enter_valid_email;
+
+  /// No description provided for @new_pass_check.
+  ///
+  /// In en, this message translates to:
+  /// **'Pls Enter New password again '**
+  String get new_pass_check;
+
   /// No description provided for @password.
   ///
   /// In en, this message translates to:
