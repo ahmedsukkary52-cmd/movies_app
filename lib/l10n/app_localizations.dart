@@ -124,6 +124,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete Account'**
   String get update_profile_delete_account;
+
+  /// No description provided for @update_profile_update_data.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Data'**
+  String get update_profile_update_data;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

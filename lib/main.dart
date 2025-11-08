@@ -8,10 +8,19 @@ import 'package:team_flutter_6_movie_app/login/login.dart';
 import 'package:team_flutter_6_movie_app/ui/update_Profile/update_profile.dart';
 
 import 'Bloc/local_state.dart';
+import 'cubit/select_index_avatars_cubit.dart';
 import 'l10n/app_localizations.dart';
 
 void main() {
-  runApp(BlocProvider(create: (context) => LocaleBloc(), child: MoviesApp()));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => LocaleBloc()),
+        BlocProvider(create: (context) => SelectIndexAvatarsCubit()),
+      ],
+      child: MoviesApp(),
+    ),
+  );
 }
 
 class MoviesApp extends StatelessWidget {
