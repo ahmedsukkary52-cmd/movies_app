@@ -55,6 +55,8 @@
   "pick_avatar": "اختر صورتك",
   "delete_account": "حذف الحساب",
   "update_data": "تحديث البيانات",
-   "update_profile_update_data": "تحديث البيانات",
-  "avatar":"الصورة الرمزية"
+  "update_profile_update_data": "تحديث البيانات",
+  "avatar":"الصورة الرمزية",
+  "enter_name":"ادخل اسمك",
+  "enter_phone_number":"ادخل رقم الهاتف"
 }

@@ -56,5 +56,7 @@
   "delete_account": "Delete Account",
   "update_data": "Update Data",
   "update_profile_update_data": "Update Data",
-  "avatar":"avatar"
+  "avatar":"avatar",
+  "enter_name":"Enter Your Name",
+  "enter_phone_number":"Enter Phone Number"
 }
