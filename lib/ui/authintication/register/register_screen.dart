@@ -33,6 +33,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        foregroundColor: ColorApp.primaryWallow,
         title: Text(
           AppLocalizations.of(context)!.register,
           style: TextApp.regular16Wallow,
