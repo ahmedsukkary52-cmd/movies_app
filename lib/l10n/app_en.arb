@@ -1,5 +1,10 @@
 {
   "@@locale": "en",
+  "appTitle": "Movie App",
+  "welcomeMessage": "Welcome to our app!",
+  "update_profile_pick_avatar": "Pick Avatar",
+  "update_profile_reset_password": "Reset Password",
+  "update_profile_delete_account": "Delete Account",
   "watch": "Watch",
   "email": "Email",
   "old_pass": " Enter Old password",
@@ -49,5 +54,6 @@
   "reset_password": "Reset Password",
   "pick_avatar": "Pick Avatar",
   "delete_account": "Delete Account",
-  "update_data": "Update Data"
+  "update_data": "Update Data",
+  "update_profile_update_data": "Update Data"
 }

@@ -95,6 +95,36 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
+  /// No description provided for @appTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Movie App'**
+  String get appTitle;
+
+  /// No description provided for @welcomeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to our app!'**
+  String get welcomeMessage;
+
+  /// No description provided for @update_profile_pick_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Avatar'**
+  String get update_profile_pick_avatar;
+
+  /// No description provided for @update_profile_reset_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get update_profile_reset_password;
+
+  /// No description provided for @update_profile_delete_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get update_profile_delete_account;
+
   /// No description provided for @watch.
   ///
   /// In en, this message translates to:
@@ -394,6 +424,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update Data'**
   String get update_data;
+
+  /// No description provided for @update_profile_update_data.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Data'**
+  String get update_profile_update_data;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
