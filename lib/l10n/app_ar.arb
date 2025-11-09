@@ -5,7 +5,6 @@
   "update_profile_pick_avatar": "اختر صورة شخصية",
   "update_profile_reset_password": "إعادة تعيين كلمة المرور",
   "update_profile_delete_account": "حذف الحساب",
-  "update_profile_update_data": "تحديث البيانات",
   "watch": "شاهد",
   "email": "البريد الإلكتروني",
   "password": "كلمة المرور",
@@ -47,6 +46,6 @@
   "reset_password": "إعادة تعيين كلمة المرور",
   "pick_avatar": "اختر صورتك",
   "delete_account": "حذف الحساب",
-  "update_data": "تحديث البيانات"
+  "update_data": "تحديث البيانات",
    "update_profile_update_data": "تحديث البيانات"
 }
