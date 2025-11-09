@@ -15,6 +15,30 @@ class AppLocalizationsAr extends AppLocalizations {
   String get email => 'البريد الإلكتروني';
 
   @override
+  String get old_pass => ' أدخل كلمة المرور القديمة';
+
+  @override
+  String get new_pass => ' أدخل كلمة المرور الجديدة';
+
+  @override
+  String get please_enter_password => 'من فضلك أدخل كلمة المرور';
+
+  @override
+  String get password_too_short => 'كلمة المرور يجب ألا تقل عن 6 أحرف';
+
+  @override
+  String get password_not_match => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String get please_enter_email => 'من فضلك أدخل البريد الإلكتروني';
+
+  @override
+  String get please_enter_valid_email => 'من فضلك أدخل بريدًا إلكترونيًا صحيحًا';
+
+  @override
+  String get new_pass_check => 'أدخل كلمة المرور الجديدة مرة أخرى';
+
+  @override
   String get password => 'كلمة المرور';
 
   @override

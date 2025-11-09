@@ -4,13 +4,19 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:team_flutter_6_movie_app/Bloc/local_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/login/login.dart';
+import 'package:team_flutter_6_movie_app/ui/reset_password_widget/forget_password_screen.dart';
+import 'package:team_flutter_6_movie_app/ui/reset_password_widget/reset_passsword_screen.dart';
 import 'package:team_flutter_6_movie_app/onboarding/onboarding_screens.dart';
-
 import 'Bloc/local_state.dart';
 import 'l10n/app_localizations.dart';
 
 void main() {
-  runApp(BlocProvider(create: (context) => LocaleBloc(), child: MoviesApp()));
+  runApp(
+    BlocProvider(
+      create: (context) => LocaleBloc(),
+      child: const MoviesApp(),
+    ),
+  );
 }
 
 class MoviesApp extends StatelessWidget {
@@ -26,6 +32,8 @@ class MoviesApp extends StatelessWidget {
           routes: {
             RoutesApp.loginRouteName: (context) => Login(),
             RoutesApp.onboardingRouteName: (context) => OnboardingScreens(),
+            RoutesApp.forgetPasswordScreen: (context) => ForgetPasswordScreen(),
+            RoutesApp.resetPasswordScreen: (context) => ResetPassswordScreen(),
           },
           localizationsDelegates: const [
             AppLocalizations.delegate,
@@ -39,4 +47,11 @@ class MoviesApp extends StatelessWidget {
       },
     );
   }
+}
+
+class RoutesApp {
+  static const String loginRouteName = 'login';
+  static const String onboardingRouteName = 'onboarding';
+  static const String forgetPasswordScreen = 'forgetPassword';
+  static const String resetPasswordScreen = 'resetPassword';
 }
