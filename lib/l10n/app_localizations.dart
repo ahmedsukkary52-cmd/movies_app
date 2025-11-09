@@ -95,257 +95,41 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
-  /// No description provided for @watch.
+  /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Watch'**
-  String get watch;
+  /// **'Movie App'**
+  String get appTitle;
 
-  /// No description provided for @email.
+  /// No description provided for @welcomeMessage.
   ///
   /// In en, this message translates to:
-  /// **'Email'**
-  String get email;
+  /// **'Welcome to our app!'**
+  String get welcomeMessage;
 
-  /// No description provided for @password.
-  ///
-  /// In en, this message translates to:
-  /// **'Password'**
-  String get password;
-
-  /// No description provided for @forget_password.
-  ///
-  /// In en, this message translates to:
-  /// **'Forget Password'**
-  String get forget_password;
-
-  /// No description provided for @login.
-  ///
-  /// In en, this message translates to:
-  /// **'Login'**
-  String get login;
-
-  /// No description provided for @next.
-  ///
-  /// In en, this message translates to:
-  /// **'Next'**
-  String get next;
-
-  /// No description provided for @find_favorite_movie.
-  ///
-  /// In en, this message translates to:
-  /// **'Find Your Next Favorite Movie Here'**
-  String get find_favorite_movie;
-
-  /// No description provided for @get_access_huge.
-  ///
-  /// In en, this message translates to:
-  /// **'Get access to a huge library of movies to suit all tastes. You will surely like it.'**
-  String get get_access_huge;
-
-  /// No description provided for @explore_now.
-  ///
-  /// In en, this message translates to:
-  /// **'Explore Now'**
-  String get explore_now;
-
-  /// No description provided for @discover_movies.
-  ///
-  /// In en, this message translates to:
-  /// **'Discover Movies'**
-  String get discover_movies;
-
-  /// No description provided for @explore_vast.
-  ///
-  /// In en, this message translates to:
-  /// **'Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.'**
-  String get explore_vast;
-
-  /// No description provided for @back.
-  ///
-  /// In en, this message translates to:
-  /// **'Back'**
-  String get back;
-
-  /// No description provided for @discover_movies_from_genre.
-  ///
-  /// In en, this message translates to:
-  /// **'Discover movies from every genre, in all available qualities. Find something new and exciting to watch every day.'**
-  String get discover_movies_from_genre;
-
-  /// No description provided for @explore_all_genres.
-  ///
-  /// In en, this message translates to:
-  /// **'Explore All Genres'**
-  String get explore_all_genres;
-
-  /// No description provided for @create_watchlist.
-  ///
-  /// In en, this message translates to:
-  /// **'Create Watchlist'**
-  String get create_watchlist;
-
-  /// No description provided for @save_movies_to_list.
-  ///
-  /// In en, this message translates to:
-  /// **'Save movies to your watchlist to keep track of what you want to watch next. Enjoy films in various qualities and genres.'**
-  String get save_movies_to_list;
-
-  /// No description provided for @rate_review_learn.
-  ///
-  /// In en, this message translates to:
-  /// **'Rate, Review, and Learn'**
-  String get rate_review_learn;
-
-  /// No description provided for @share_thoughts.
-  ///
-  /// In en, this message translates to:
-  /// **'Share your thoughts on the movies you\'ve watched. Dive deep into film details and help others discover great movies with your reviews.'**
-  String get share_thoughts;
-
-  /// No description provided for @start_watching.
-  ///
-  /// In en, this message translates to:
-  /// **'Start Watching Now'**
-  String get start_watching;
-
-  /// No description provided for @finish.
-  ///
-  /// In en, this message translates to:
-  /// **'Finish'**
-  String get finish;
-
-  /// No description provided for @dont_have_account.
-  ///
-  /// In en, this message translates to:
-  /// **'Don’t Have Account?'**
-  String get dont_have_account;
-
-  /// No description provided for @create.
-  ///
-  /// In en, this message translates to:
-  /// **'Create'**
-  String get create;
-
-  /// No description provided for @or.
-  ///
-  /// In en, this message translates to:
-  /// **'OR'**
-  String get or;
-
-  /// No description provided for @login_with_google.
-  ///
-  /// In en, this message translates to:
-  /// **'Login With Google'**
-  String get login_with_google;
-
-  /// No description provided for @name.
-  ///
-  /// In en, this message translates to:
-  /// **'Name'**
-  String get name;
-
-  /// No description provided for @confirm_password.
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm Password'**
-  String get confirm_password;
-
-  /// No description provided for @phone_number.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone Number'**
-  String get phone_number;
-
-  /// No description provided for @create_account.
-  ///
-  /// In en, this message translates to:
-  /// **'Create Account'**
-  String get create_account;
-
-  /// No description provided for @already_have_account.
-  ///
-  /// In en, this message translates to:
-  /// **'Already Have Account?'**
-  String get already_have_account;
-
-  /// No description provided for @verify_email.
-  ///
-  /// In en, this message translates to:
-  /// **'Verify Email'**
-  String get verify_email;
-
-  /// No description provided for @register.
-  ///
-  /// In en, this message translates to:
-  /// **'Register'**
-  String get register;
-
-  /// No description provided for @see_more.
-  ///
-  /// In en, this message translates to:
-  /// **'See More'**
-  String get see_more;
-
-  /// No description provided for @search.
-  ///
-  /// In en, this message translates to:
-  /// **'Search'**
-  String get search;
-
-  /// No description provided for @wish_list.
-  ///
-  /// In en, this message translates to:
-  /// **'Wish List'**
-  String get wish_list;
-
-  /// No description provided for @history.
-  ///
-  /// In en, this message translates to:
-  /// **'History'**
-  String get history;
-
-  /// No description provided for @edit_profile.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit Profile'**
-  String get edit_profile;
-
-  /// No description provided for @exit.
-  ///
-  /// In en, this message translates to:
-  /// **'Exit'**
-  String get exit;
-
-  /// No description provided for @watch_list.
-  ///
-  /// In en, this message translates to:
-  /// **'Watch List'**
-  String get watch_list;
-
-  /// No description provided for @reset_password.
-  ///
-  /// In en, this message translates to:
-  /// **'Reset Password'**
-  String get reset_password;
-
-  /// No description provided for @pick_avatar.
+  /// No description provided for @update_profile_pick_avatar.
   ///
   /// In en, this message translates to:
   /// **'Pick Avatar'**
-  String get pick_avatar;
+  String get update_profile_pick_avatar;
 
-  /// No description provided for @delete_account.
+  /// No description provided for @update_profile_reset_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get update_profile_reset_password;
+
+  /// No description provided for @update_profile_delete_account.
   ///
   /// In en, this message translates to:
   /// **'Delete Account'**
-  String get delete_account;
+  String get update_profile_delete_account;
 
-  /// No description provided for @update_data.
+  /// No description provided for @update_profile_update_data.
   ///
   /// In en, this message translates to:
   /// **'Update Data'**
-  String get update_data;
+  String get update_profile_update_data;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:team_flutter_6_movie_app/Bloc/local_bloc.dart';
+import 'package:team_flutter_6_movie_app/Utils/app_theme.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/login/login.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:team_flutter_6_movie_app/onboarding/onboarding_screens.dart';
+import 'package:team_flutter_6_movie_app/ui/update_Profile/update_profile.dart';
 import 'Bloc/local_state.dart';
+import 'cubit/select_index_avatars_cubit.dart';
 import 'l10n/app_localizations.dart';
 
 void main() {
-  runApp(BlocProvider(create: (context) => LocaleBloc(), child: MoviesApp()));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => LocaleBloc()),
+        BlocProvider(create: (context) => SelectIndexAvatarsCubit()),
+      ],
+      child: MoviesApp(),
+    ),
+  );
 }
 
 class MoviesApp extends StatelessWidget {
@@ -20,8 +32,12 @@ class MoviesApp extends StatelessWidget {
       builder: (context, state) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: RoutesApp.loginRouteName,
-          routes: {RoutesApp.loginRouteName: (context) => Login()},
+          initialRoute: RoutesApp.onboardingRouteName,
+          routes: {
+            RoutesApp.loginRouteName: (context) => Login(),
+            RoutesApp.onboardingRouteName: (context) => OnboardingScreens(),
+            RoutesApp.updateProfileRouteName: (context) => UpdateProfile(),
+          },
           localizationsDelegates: const [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
@@ -30,6 +46,7 @@ class MoviesApp extends StatelessWidget {
           ],
           supportedLocales: const [Locale('en'), Locale('ar')],
           locale: state.locale,
+          theme: AppTheme.themeData,
         );
       },
     );
