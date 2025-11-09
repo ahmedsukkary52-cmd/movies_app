@@ -5,7 +5,6 @@
   "update_profile_pick_avatar": "Pick Avatar",
   "update_profile_reset_password": "Reset Password",
   "update_profile_delete_account": "Delete Account",
-  "update_profile_update_data": "Update Data",
   "watch": "Watch",
   "email": "Email",
   "password": "Password",
@@ -47,6 +46,6 @@
   "reset_password": "Reset Password",
   "pick_avatar": "Pick Avatar",
   "delete_account": "Delete Account",
-  "update_data": "Update Data"
+  "update_data": "Update Data",
   "update_profile_update_data": "Update Data"
 }
