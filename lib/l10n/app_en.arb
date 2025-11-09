@@ -55,5 +55,6 @@
   "pick_avatar": "Pick Avatar",
   "delete_account": "Delete Account",
   "update_data": "Update Data",
-  "update_profile_update_data": "Update Data"
+  "update_profile_update_data": "Update Data",
+  "avatar":"avatar"
 }
