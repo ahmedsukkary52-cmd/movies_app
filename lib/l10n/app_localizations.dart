@@ -430,6 +430,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update Data'**
   String get update_profile_update_data;
+
+  /// No description provided for @avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'avatar'**
+  String get avatar;
+
+  /// No description provided for @enter_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Name'**
+  String get enter_name;
+
+  /// No description provided for @enter_phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Phone Number'**
+  String get enter_phone_number;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

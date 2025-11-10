@@ -89,6 +89,7 @@ flutter:
     - assets/images/general/forgetPassword.png
     - assets/images/general/startMoveBotton.png
     - assets/images/splash/branding.png
+    - assets/images/splash/splashLogo.png
     - assets/icons/bottomNavBar_icon/exploreSelected.png
     - assets/icons/bottomNavBar_icon/exploreUnselected.png
     - assets/icons/bottomNavBar_icon/homeUnselected.png

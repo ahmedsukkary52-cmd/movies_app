@@ -4,13 +4,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:team_flutter_6_movie_app/Bloc/local_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/app_theme.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
-import 'package:team_flutter_6_movie_app/login/login.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/login/login_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/register/register_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/home/home_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/reset_password_widget/forget_password_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/reset_password_widget/reset_passsword_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/update_Profile/update_profile.dart';
+
 import 'Bloc/local_state.dart';
 import 'cubit/select_index_avatars_cubit.dart';
 import 'l10n/app_localizations.dart';
@@ -37,7 +37,7 @@ class MoviesApp extends StatelessWidget {
       builder: (context, state) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: RoutesApp.loginRouteName,
+          initialRoute: RoutesApp.onboardingRouteName,
           routes: {
             RoutesApp.loginRouteName: (context) => LoginScreen(),
             RoutesApp.homeRouteName: (context) => HomeScreen() ,

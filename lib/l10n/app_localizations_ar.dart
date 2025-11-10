@@ -176,4 +176,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get update_profile_update_data => 'تحديث البيانات';
+
+  @override
+  String get avatar => 'الصورة الرمزية';
+
+  @override
+  String get enter_name => 'ادخل اسمك';
+
+  @override
+  String get enter_phone_number => 'ادخل رقم الهاتف';
 }
