@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: context.height* 0.02),
                 CustomTextField(
-                  prefixIconName: PathImage.email,
+                  prefixIconName: Icon(Icons.email_rounded,color: ColorApp.whiteColor,),
                   hintText: AppLocalizations.of(context)!.email,
                   controller: emailController,
                   validator: (text) {
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomTextField(
                   hasSuffix: true,
                   obsecureText: true,
-                  prefixIconName: PathImage.password,
+                  prefixIconName: Icon(Icons.lock,color: ColorApp.whiteColor,),
                   hintText: AppLocalizations.of(context)!.password,
                   controller: passwardController,
                   validator: (text) {

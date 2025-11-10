@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
-import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
 import 'package:team_flutter_6_movie_app/l10n/app_localizations.dart';
 import 'package:team_flutter_6_movie_app/onboarding/reusable_widget/build_footer.dart';
+import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_elevated_button.dart';
 
 class OnboardingScreens extends StatefulWidget {
   const OnboardingScreens({super.key});
@@ -71,23 +71,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                 horizontal: context.width * .04,
                 vertical: context.height * .01,
               ),
-              child: Column(
-                children: [
-                  ElevatedButton(
-                    onPressed: next,
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      backgroundColor: ColorApp.primaryWallow,
-                      padding:
-                      const EdgeInsets.symmetric(vertical: 10),
-                      minimumSize: const Size(double.infinity, 0),
-                    ),
-                    child: Text(local.explore_now, style: TextApp.semiBold20black),
-                  ),
-                ],
-              ),
+              child: CustomElevatedButton(text: local.explore_now, onPressed: next,textStyle: TextApp.semiBold20black)
             ),
             backgroundImage: PathImage.onboarding1,
             titleWidget: Text(

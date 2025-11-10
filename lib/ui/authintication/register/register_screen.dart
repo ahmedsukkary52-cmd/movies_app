@@ -1,12 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/model/avatars_model.dart';
 
 import '../../../Utils/color_App.dart';
 import '../../../Utils/text_app.dart';
+import '../../../cubit/select_index_avatars_cubit.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../home/home_screen.dart';
 import '../login/login_screen.dart';
@@ -43,27 +43,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            CarouselSlider(
-              options: CarouselOptions(
-                height: 150.0,
-                animateToClosest: true,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: false,
-                scrollDirection: Axis.horizontal,
-                viewportFraction: 0.45,
-              ),
-              items: AvatarsModel.avatars.map((imagePath) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: context.width * 0.4,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(color:ColorApp.transparent),
-                      child: Image.asset(imagePath, fit: BoxFit.contain),
-                    );
-                  },
-                );
-              }).toList(),
+            BlocBuilder<SelectIndexAvatarsCubit, SelectIndexAvatarsState>(
+        builder: (context, state) {
+          return CarouselSlider.builder(
+            options: CarouselOptions(
+              height: context.height * .16,
+              animateToClosest: true,
+              enlargeCenterPage: true,
+              enableInfiniteScroll: false,
+              scrollDirection: Axis.horizontal,
+              viewportFraction: .36,
+              enlargeStrategy: CenterPageEnlargeStrategy.height,
+              enlargeFactor: 0.55,
+              initialPage: state.selectIndexAvatars,
+              onPageChanged: (index, reason) {
+                context.read<SelectIndexAvatarsCubit>().updateSelectIndexAvatars(index);
+              },
+          ),
+              itemCount: AvatarsModel.avatars.length,
+            itemBuilder: (context, index, realIndex) {
+              return AnimatedContainer(duration: Duration(milliseconds: 300),
+                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                child: Image.asset(
+                  AvatarsModel.avatars[index],
+                  fit: BoxFit.contain,
+                ),
+              );
+            },
+            );
+              }
             ),
             SizedBox(height: context.height * 0.01),
             Text(
@@ -78,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     SizedBox(height: context.height * 0.02),
                     CustomTextField(
-                      prefixIconName: PathImage.name,
+                      prefixIconName: Icon(Icons.person,color: ColorApp.whiteColor,),
                       hintText: AppLocalizations.of(context)!.name,
                       controller: nameController,
                       validator: (text) {
@@ -90,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     SizedBox(height: context.height * 0.02),
                     CustomTextField(
-                      prefixIconName: PathImage.email,
+                      prefixIconName: Icon(Icons.email_rounded,color: ColorApp.whiteColor,),
                       hintText: AppLocalizations.of(context)!.email,
                       controller: emailController,
                       validator: (text) {
@@ -112,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     CustomTextField(
                       hasSuffix: true,
                       obsecureText: true,
-                      prefixIconName: PathImage.password,
+                      prefixIconName: Icon(Icons.lock,color: ColorApp.whiteColor,),
                       hintText: AppLocalizations.of(context)!.password,
                       controller: passwardController,
                       validator: (text) {
@@ -133,7 +141,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     CustomTextField(
                       hasSuffix: true,
                       obsecureText: true,
-                      prefixIconName: PathImage.password,
+                      prefixIconName: Icon(Icons.lock,color: ColorApp.whiteColor,),
                       hintText: AppLocalizations.of(context)!.confirm_password,
                       controller: confirmPasswardController,
                       validator: (text) {
@@ -153,7 +161,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(height: context.height * 0.02),
                     CustomTextField(
                       isNumber: true,
-                      prefixIconName: PathImage.call,
+                      prefixIconName: Icon(Icons.call,color: ColorApp.whiteColor,),
                       hintText: AppLocalizations.of(context)!.phone_number,
                       controller: phoneNumberController,
                       validator: (text) {
