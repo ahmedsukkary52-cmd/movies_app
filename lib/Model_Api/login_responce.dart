@@ -1,81 +1,49 @@
 import 'dart:convert';
 
-LoginResponce loginResponceFromJson(String str) => LoginResponce.fromJson(json.decode(str));
+LoginResponse loginResponseFromJson(String str) =>
+    LoginResponse.fromJson(json.decode(str));
 
-String loginResponceToJson(LoginResponce data) => json.encode(data.toJson());
+String loginResponseToJson(LoginResponse data) =>
+    json.encode(data.toJson());
 
-class LoginResponce {
-    LoginResponce({
-        this.data,           // ممكن تكون null لو في error
-        this.message,        // ممكن تكون String او List<String>
-        this.error,          // جديد: يحوي رسالة الخطأ
-        this.statusCode,     // جديد: يحوي statusCode
-    });
+class LoginResponse {
+  LoginResponse({
+    this.data,
+    this.message,
+    this.statusCode,
+  });
 
-    Data? data;
-    dynamic message;
-    String? error;
-    int? statusCode;
+  Data? data;
+  String? message;
+  int? statusCode;
 
-    factory LoginResponce.fromJson(Map<dynamic, dynamic> json) => LoginResponce(
-        data: json["data"] != null ? Data.fromJson(json["data"]) : null,
-        message: json["message"],
-        error: json["error"],
-        statusCode: json["statusCode"],
-    );
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
+    data: json["data"] != null && json["data"] is Map<String, dynamic>
+        ? Data.fromJson(json["data"])
+        : null,
+    message: json["message"],
+    statusCode: json["statusCode"],
+  );
 
-    Map<dynamic, dynamic> toJson() => {
-        "data": data?.toJson(),
-        "message": message,
-        "error": error,
-        "statusCode": statusCode,
-    };
+  Map<String, dynamic> toJson() => {
+    "data": data?.toJson(),
+    "message": message,
+    "statusCode": statusCode,
+  };
 }
 
 class Data {
-    Data({
-        required this.createdAt,
-        required this.password,
-        required this.phone,
-        required this.v,
-        required this.name,
-        required this.avaterId,
-        required this.id,
-        required this.email,
-        required this.updatedAt,
-    });
+  Data({
+    required this.token,
+  });
 
-    DateTime createdAt;
-    String password;
-    String phone;
-    int v;
-    String name;
-    int avaterId;
-    String id;
-    String email;
-    DateTime updatedAt;
+  String token;
 
-    factory Data.fromJson(Map<dynamic, dynamic> json) => Data(
-        createdAt: DateTime.parse(json["createdAt"]),
-        password: json["password"],
-        phone: json["phone"],
-        v: json["__v"],
-        name: json["name"],
-        avaterId: json["avaterId"],
-        id: json["_id"],
-        email: json["email"],
-        updatedAt: DateTime.parse(json["updatedAt"]),
-    );
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
+    token: json["token"],
+  );
 
-    Map<dynamic, dynamic> toJson() => {
-        "createdAt": createdAt.toIso8601String(),
-        "password": password,
-        "phone": phone,
-        "__v": v,
-        "name": name,
-        "avaterId": avaterId,
-        "_id": id,
-        "email": email,
-        "updatedAt": updatedAt.toIso8601String(),
-    };
+  Map<String, dynamic> toJson() => {
+    "token": token,
+  };
 }
