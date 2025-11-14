@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 
 import '../../Utils/color_App.dart';
-import '../../cubit/select_index_avatars_cubit.dart';
+import '../../cubits/cubit/select_index_avatars_cubit.dart';
 import '../../model/avatars_model.dart';
 import 'avatars_image.dart';
 
@@ -29,41 +29,37 @@ void bottomSheet(BuildContext parentContext) {
                 color: ColorApp.grayColor,
               ),
               child:
-              BlocBuilder<
-                  SelectIndexAvatarsCubit,
-                  SelectIndexAvatarsState
-              >(
-                builder: (context, state) {
-                  return GridView.builder(
-                    gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      vertical: parentContext.height * 0.03,
-                      horizontal: parentContext.width * 0.03,
-                    ),
-                    itemCount: AvatarsModel.avatars.length,
-                    itemBuilder: (context, index) {
-                      final cubit = context
-                          .read<SelectIndexAvatarsCubit>();
-                      final state = cubit.state;
-                      return InkWell(
-                        onTap: () {
-                          cubit.updateSelectIndexAvatars(index);
-                          Navigator.pop(context);
-                        },
-                        child: AvatarsImage(
-                          image: AvatarsModel.avatars[index],
-                          isSelect: state.selectIndexAvatars == index,
+                  BlocBuilder<SelectIndexAvatarsCubit, SelectIndexAvatarsState>(
+                    builder: (context, state) {
+                      return GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                            ),
+                        padding: EdgeInsets.symmetric(
+                          vertical: parentContext.height * 0.03,
+                          horizontal: parentContext.width * 0.03,
                         ),
+                        itemCount: AvatarsModel.avatars.length,
+                        itemBuilder: (context, index) {
+                          final cubit = context.read<SelectIndexAvatarsCubit>();
+                          final state = cubit.state;
+                          return InkWell(
+                            onTap: () {
+                              cubit.updateSelectIndexAvatars(index);
+                              Navigator.pop(context);
+                            },
+                            child: AvatarsImage(
+                              image: AvatarsModel.avatars[index],
+                              isSelect: state.selectIndexAvatars == index,
+                            ),
+                          );
+                        },
                       );
                     },
-                  );
-                },
-              ),
+                  ),
             );
           },
         ),
