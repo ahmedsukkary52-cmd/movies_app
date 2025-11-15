@@ -7,7 +7,7 @@ import 'package:team_flutter_6_movie_app/model/avatars_model.dart';
 
 import '../../../Utils/color_App.dart';
 import '../../../Utils/text_app.dart';
-import '../../../cubit/select_index_avatars_cubit.dart';
+import '../../../cubits/cubit/select_index_avatars_cubit.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../home/home_screen.dart';
 import '../login/login_screen.dart';
@@ -30,6 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController nameController = TextEditingController();
   TextEditingController confirmPasswardController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,34 +46,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Column(
           children: [
             BlocBuilder<SelectIndexAvatarsCubit, SelectIndexAvatarsState>(
-        builder: (context, state) {
-          return CarouselSlider.builder(
-            options: CarouselOptions(
-              height: context.height * .16,
-              animateToClosest: true,
-              enlargeCenterPage: true,
-              enableInfiniteScroll: false,
-              scrollDirection: Axis.horizontal,
-              viewportFraction: .36,
-              enlargeStrategy: CenterPageEnlargeStrategy.height,
-              enlargeFactor: 0.55,
-              initialPage: state.selectIndexAvatars,
-              onPageChanged: (index, reason) {
-                context.read<SelectIndexAvatarsCubit>().updateSelectIndexAvatars(index);
+              builder: (context, state) {
+                return CarouselSlider.builder(
+                  options: CarouselOptions(
+                    height: context.height * .16,
+                    animateToClosest: true,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: false,
+                    scrollDirection: Axis.horizontal,
+                    viewportFraction: .36,
+                    enlargeStrategy: CenterPageEnlargeStrategy.height,
+                    enlargeFactor: 0.55,
+                    initialPage: state.selectIndexAvatars,
+                    onPageChanged: (index, reason) {
+                      context
+                          .read<SelectIndexAvatarsCubit>()
+                          .updateSelectIndexAvatars(index);
+                    },
+                  ),
+                  itemCount: AvatarsModel.avatars.length,
+                  itemBuilder: (context, index, realIndex) {
+                    return AnimatedContainer(
+                      duration: Duration(milliseconds: 300),
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Image.asset(
+                        AvatarsModel.avatars[index],
+                        fit: BoxFit.contain,
+                      ),
+                    );
+                  },
+                );
               },
-          ),
-              itemCount: AvatarsModel.avatars.length,
-            itemBuilder: (context, index, realIndex) {
-              return AnimatedContainer(duration: Duration(milliseconds: 300),
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                child: Image.asset(
-                  AvatarsModel.avatars[index],
-                  fit: BoxFit.contain,
-                ),
-              );
-            },
-            );
-              }
             ),
             SizedBox(height: context.height * 0.01),
             Text(
@@ -104,7 +108,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: emailController,
                       validator: (text) {
                         if (text == null || text.trim().isEmpty) {
-                          return AppLocalizations.of(context)!.please_enter_email;
+                          return AppLocalizations.of(
+                            context,
+                          )!.please_enter_email;
                         }
                         final bool emailValid = RegExp(
                           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
@@ -167,7 +173,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: phoneNumberController,
                       validator: (text) {
                         if (text == null || text.trim().isEmpty) {
-                          return AppLocalizations.of(context)!.enter_phone_number;
+                          return AppLocalizations.of(
+                            context,
+                          )!.enter_phone_number;
                         }
                         return null;
                       },

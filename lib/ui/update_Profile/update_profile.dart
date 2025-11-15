@@ -3,14 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
-import 'package:team_flutter_6_movie_app/cubit/select_index_avatars_cubit.dart';
+import 'package:team_flutter_6_movie_app/apis/api_manager.dart';
+import 'package:team_flutter_6_movie_app/cubits/cubitToken/token_cubit.dart';
+import 'package:team_flutter_6_movie_app/cubits/cubitToken/token_state.dart';
 import 'package:team_flutter_6_movie_app/l10n/app_localizations.dart';
 import 'package:team_flutter_6_movie_app/model/avatars_model.dart';
+import 'package:team_flutter_6_movie_app/model/update_profile_request.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_elevated_button.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_text_field.dart';
 import 'package:team_flutter_6_movie_app/ui/update_Profile/showBottomSheet.dart';
 
 import '../../Utils/text_app.dart';
+import '../../cubits/cubit/select_index_avatars_cubit.dart';
 
 class UpdateProfile extends StatefulWidget {
   UpdateProfile({super.key});
@@ -23,6 +27,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
   TextEditingController name = TextEditingController(text: "John Safwat");
   TextEditingController phone = TextEditingController(text: "01200000000");
   final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final local = AppLocalizations.of(context);
@@ -110,21 +115,15 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     text: local.update_profile_delete_account,
                     onPressed: () {
                       //todo delete account
+                      deleteProfile();
                     },
                   ),
                   SizedBox(height: context.height * .02),
+                  //todo update data
                   CustomElevatedButton(
                     text: local.update_profile_update_data,
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        String name2 = name.text.trim();
-                        String phone2 = phone.text.trim();
-                        print("Name: $name2");
-                        print("Phone: $phone2");
-                      } else {
-                        print("Validation failed");
-                        //todo update data
-                      }
+                      updateProfile();
                     },
                   ),
                   SizedBox(height: context.height * .03),
@@ -135,5 +134,42 @@ class _UpdateProfileState extends State<UpdateProfile> {
         );
       },
     );
+  }
+
+  void updateProfile() async {
+    if (formKey.currentState!.validate()) {
+      final token = context.read<TokenLoaded>().token;
+      if (token == null) {
+        print("Not Token");
+        return;
+      }
+      final selectAvatarId = context
+          .read<SelectIndexAvatarsState>()
+          .selectIndexAvatars;
+      final request = UpdateProfileRequest(
+        name: name.text.trim(),
+        phone: phone.text.trim(),
+        avatarId: selectAvatarId,
+      );
+      final result = await ApiManager.updateProfilePatch(
+        token: token,
+        requestBody: request,
+      );
+      print(result.message);
+    } else {
+      print("Validation failed");
+      //todo update data
+    }
+  }
+
+  void deleteProfile() async {
+    final token = context.read<TokenLoaded>().token;
+    if (token == null) {
+      print("Not Token");
+      return;
+    }
+    final result = await ApiManager.deleteProfile(token: token);
+    print(result.message);
+    context.read<TokenCubit>().cleanToken();
   }
 }
