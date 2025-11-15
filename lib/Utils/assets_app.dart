@@ -23,7 +23,8 @@ class PathImage {
       'assets/images/onboarding_background_image/onboarding5.png';
   static const String onboarding6 =
       'assets/images/onboarding_background_image/onboarding6.png';
-
+  static const String homeBg =
+      'assets/images/onboarding_background_image/homeBackgroundImage.png';
   /// images -- general ------------- *
   static const String emptyImage = 'assets/images/general/EmptyImage.png';
   static const String forgetPassword =

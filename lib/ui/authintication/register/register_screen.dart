@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/model/avatars_model.dart';
 
@@ -86,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     SizedBox(height: context.height * 0.02),
                     CustomTextField(
-                      prefixIconName: Icon(Icons.person,color: ColorApp.whiteColor,),
+                      prefixIconName: Image.asset(PathImage.name),
                       hintText: AppLocalizations.of(context)!.name,
                       controller: nameController,
                       validator: (text) {
@@ -98,7 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     SizedBox(height: context.height * 0.02),
                     CustomTextField(
-                      prefixIconName: Icon(Icons.email_rounded,color: ColorApp.whiteColor,),
+                      prefixIconName: Image.asset(PathImage.email),
                       hintText: AppLocalizations.of(context)!.email,
                       controller: emailController,
                       validator: (text) {
@@ -120,7 +121,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     CustomTextField(
                       hasSuffix: true,
                       obsecureText: true,
-                      prefixIconName: Icon(Icons.lock,color: ColorApp.whiteColor,),
+                      prefixIconName: Image.asset(PathImage.password),
                       hintText: AppLocalizations.of(context)!.password,
                       controller: passwardController,
                       validator: (text) {
@@ -141,7 +142,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     CustomTextField(
                       hasSuffix: true,
                       obsecureText: true,
-                      prefixIconName: Icon(Icons.lock,color: ColorApp.whiteColor,),
+                      prefixIconName: Image.asset(PathImage.password),
                       hintText: AppLocalizations.of(context)!.confirm_password,
                       controller: confirmPasswardController,
                       validator: (text) {
@@ -161,7 +162,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(height: context.height * 0.02),
                     CustomTextField(
                       isNumber: true,
-                      prefixIconName: Icon(Icons.call,color: ColorApp.whiteColor,),
+                      prefixIconName: Image.asset(PathImage.call),
                       hintText: AppLocalizations.of(context)!.phone_number,
                       controller: phoneNumberController,
                       validator: (text) {
