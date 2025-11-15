@@ -3,5 +3,6 @@ import 'package:flutter/material.dart';
 import 'color_App.dart';
 
 class AppTheme {
-  static ThemeData themeData=ThemeData(scaffoldBackgroundColor: ColorApp.primaryBlack,appBarTheme: AppBarTheme(backgroundColor: ColorApp.primaryBlack,));
+  static ThemeData themeData=ThemeData(scaffoldBackgroundColor: ColorApp.primaryBlack,appBarTheme: AppBarTheme(backgroundColor: ColorApp.primaryBlack,),
+      progressIndicatorTheme: ProgressIndicatorThemeData(color: ColorApp.primaryWallow));
 }
