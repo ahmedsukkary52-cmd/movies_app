@@ -46,6 +46,7 @@ dependencies:
   carousel_slider: ^5.1.1
   http: ^1.6.0
   fluttertoast: ^9.0.0
+  google_sign_in: ^7.2.0
 
 dev_dependencies:
   flutter_test:
@@ -87,32 +88,35 @@ flutter:
     - assets/images/onboarding_background_image/onboarding4.png
     - assets/images/onboarding_background_image/onboarding5.png
     - assets/images/onboarding_background_image/onboarding6.png
+    - assets/images/onboarding_background_image/homeBackgroundImage.png
     - assets/images/general/EmptyImage.png
     - assets/images/general/forgetPassword.png
     - assets/images/general/startMoveBotton.png
     - assets/images/splash/branding.png
-    - assets/icons/bottomNavBar_icon/exploreSelected.svg
-    - assets/icons/bottomNavBar_icon/exploreUnselected.svg
-    - assets/icons/bottomNavBar_icon/homeUnselected.svg
-    - assets/icons/bottomNavBar_icon/homeSelected.svg
-    - assets/icons/bottomNavBar_icon/profielSelected.svg
-    - assets/icons/bottomNavBar_icon/profileUnselected.svg
-    - assets/icons/bottomNavBar_icon/searchUnselected.svg
-    - assets/icons/bottomNavBar_icon/searchSelected.svg
-    - assets/icons/general/account.svg
-    - assets/icons/general/arabic.svg
-    - assets/icons/general/bookmark.svg
-    - assets/icons/general/call.svg
-    - assets/icons/general/clock.svg
-    - assets/icons/general/email.svg
-    - assets/icons/general/english.svg
-    - assets/icons/general/favorite.svg
-    - assets/icons/general/favorite.svg
-    - assets/icons/general/google.svg
-    - assets/icons/general/menue.svg
-    - assets/icons/general/name.svg
-    - assets/icons/general/password.svg
-    - assets/icons/general/star.svg
+    - assets/images/splash/splashLogo.png
+    - assets/icons/bottomNavBar_icon/exploreSelected.png
+    - assets/icons/bottomNavBar_icon/exploreUnselected.png
+    - assets/icons/bottomNavBar_icon/homeUnselected.png
+    - assets/icons/bottomNavBar_icon/homeSelected.png
+    - assets/icons/bottomNavBar_icon/profielSelected.png
+    - assets/icons/bottomNavBar_icon/profileUnselected.png
+    - assets/icons/bottomNavBar_icon/searchUnselected.png
+    - assets/icons/bottomNavBar_icon/searchSelected.png
+    - assets/icons/general/account.png
+    - assets/icons/general/arabic.png
+    - assets/icons/general/bookmark.png
+    - assets/icons/general/call.png
+    - assets/icons/general/clock.png
+    - assets/icons/general/email.png
+    - assets/icons/general/english.png
+    - assets/icons/general/favorite.png
+    - assets/icons/general/favorite.png
+    - assets/icons/general/google.png
+    - assets/icons/general/menue.png
+    - assets/icons/general/name.png
+    - assets/icons/general/password.png
+    - assets/icons/general/star.png
+    - assets/icons/general/exit.png
   #    - assets/images/
   #    - assets/icons/
   #   - images/a_dot_ham.jpeg

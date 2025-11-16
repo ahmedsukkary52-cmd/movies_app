@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
+import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_elevated_button.dart';
 
 import '../../Utils/assets_app.dart';
 import '../../Utils/color_App.dart';
 import '../../Utils/text_app.dart';
 import '../../l10n/app_localizations.dart';
-import '../../widget/custom_elevated_button.dart';
-import '../../widget/custom_text_form_field.dart';
+import '../authintication/rusable_widget/custom_text_field.dart';
 
 class ResetPassswordScreen extends StatelessWidget {
    ResetPassswordScreen({super.key});
@@ -14,6 +14,7 @@ class ResetPassswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController oldPassController = TextEditingController();
     final TextEditingController newPassController= TextEditingController();
     final TextEditingController checkPassController= TextEditingController();
     return Scaffold(
@@ -31,7 +32,7 @@ class ResetPassswordScreen extends StatelessWidget {
       ),
       backgroundColor: ColorApp.primaryBlack,
       body: Padding(
-        padding: EdgeInsetsGeometry.symmetric(
+        padding: EdgeInsets.symmetric(
             horizontal: context.width*0.04
             ,vertical: context.height*0.02
         ),
@@ -49,73 +50,73 @@ class ResetPassswordScreen extends StatelessWidget {
                 SizedBox(
                   height: context.height*0.02,
                 ),
-                CustomTextFormField(/// todo: old pass
-                  prefixIcon: Icon(
-                    Icons.lock,color: ColorApp.whiteColor,
+                CustomTextField(
+                  prefixIconName: Icon(
+                    Icons.lock,
+                    color: ColorApp.whiteColor,
                   ),
                   hintText: AppLocalizations.of(context)!.old_pass,
-                  validator:(text) {
+                  controller: oldPassController,
+                  validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return AppLocalizations.of(
-                        context,
-                      )!.please_enter_password;
+                      return AppLocalizations.of(context)!.please_enter_password;
                     }
                     return null;
                   },
+                  hasSuffix: true,
+                  obsecureText: true,
                 ),
                 SizedBox(
                  height: context.height*0.02,
                  ),
-                CustomTextFormField(    /// todo: new pass
-                  prefixIcon: Icon(
-                    Icons.lock,color: ColorApp.whiteColor,
+                CustomTextField(
+                  prefixIconName: Icon(
+                    Icons.lock,
+                    color: ColorApp.whiteColor,
                   ),
                   hintText: AppLocalizations.of(context)!.new_pass,
                   controller: newPassController,
-                  validator:(text) {
+                  validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return AppLocalizations.of(
-                        context,
-                      )!.please_enter_password;
+                      return AppLocalizations.of(context)!.please_enter_password;
                     }
                     if (text.length < 6) {
-                      return AppLocalizations.of(
-                        context,
-                      )!.password_too_short;
+                      return AppLocalizations.of(context)!.password_too_short;
                     }
                     return null;
                   },
+                  hasSuffix: true,      // عشان تظهر أيقونة show/hide
+                  obsecureText: true,   // عشان يبدأ مخفي
                 ),
                 SizedBox(
                   height: context.height*0.02,
                 ),
-                CustomTextFormField(   /// todo: check new pass
-                  prefixIcon: Icon(
-                    Icons.password,color: ColorApp.whiteColor,
+                CustomTextField(
+                  prefixIconName: Icon(
+                    Icons.password,
+                    color: ColorApp.whiteColor,
                   ),
                   hintText: AppLocalizations.of(context)!.new_pass,
                   controller: checkPassController,
                   validator: (text) {
-                    if(text== null || text.trim().isEmpty){
-                      return AppLocalizations.of(
-                        context,
-                      )!.please_enter_password;
+                    if (text == null || text.trim().isEmpty) {
+                      return AppLocalizations.of(context)!.please_enter_password;
                     }
-                    if(text != newPassController.text){
-                     return AppLocalizations.of(context)!.password_not_match;
+                    if (text != newPassController.text) {
+                      return AppLocalizations.of(context)!.password_not_match;
                     }
                     return null;
                   },
+                  hasSuffix: true,
+                  obsecureText: true,
                 ),
                 SizedBox(
                   height: context.height*0.02,
                 ),
-                CustomElevatedButton(onPressed: () {
-                /// reset pass
+                CustomElevatedButton(text: AppLocalizations.of(context)!.reset_password, onPressed: (){
                   checkPass(context);
-                },
-                text: AppLocalizations.of(context)!.reset_password,
-                )
+                  // todo: reset Password
+                })
               ],
             ),
           ),

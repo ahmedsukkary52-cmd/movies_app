@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/l10n/app_localizations.dart';
+import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_elevated_button.dart';
 
 import '../../Utils/color_App.dart';
 import '../../Utils/text_app.dart';
@@ -72,31 +73,9 @@ class BuildFooter extends StatelessWidget {
           Column(
             spacing: context.height * .015,
             children: [
-              ElevatedButton(
-                onPressed: onPressed,
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  backgroundColor: ColorApp.primaryWallow,
-                  padding: EdgeInsetsGeometry.symmetric(vertical: 10),
-                  minimumSize: Size(double.infinity, 0),
-                ),
-                child: Text(elevated, style: TextApp.semiBold20black),
-              ),
+              CustomElevatedButton(text: elevated, onPressed: onPressed,textStyle: TextApp.semiBold20black),
               haveBack
-                  ? ElevatedButton(
-                      onPressed: onBack,
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        backgroundColor: ColorApp.primaryWallow,
-                        padding: EdgeInsetsGeometry.symmetric(vertical: 10),
-                        minimumSize: Size(double.infinity, 0),
-                      ),
-                      child: Text(local.back, style: TextApp.semiBold20black),
-                    )
+                  ?  CustomElevatedButton(text: local.back, onPressed: onBack,hasBorder: true,textStyle: TextApp.semiBold20Wallow,)
                   : SizedBox.shrink(),
             ],
           ),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
+
 import '../../../Utils/color_App.dart';
 import '../../../Utils/text_app.dart';
 
 typedef OnValidator = String? Function(String?)?;
 
 class CustomTextField extends StatefulWidget {
-  final String prefixIconName;
+  final Widget prefixIconName;
   final bool hasSuffix;
   final bool obsecureText;
   final bool isNumber ;
@@ -57,11 +59,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         focusedErrorBorder: buildOutlineInputBorder(ColorApp.primaryWallow),
         hintText: widget.hintText,
         hintStyle: TextApp.regular16White,
-        prefixIcon: ImageIcon(
-          AssetImage(widget.prefixIconName),
-          color: ColorApp.whiteColor,
-          size: 18,
-        ),
+        prefixIcon: Container(padding: EdgeInsets.symmetric(horizontal: context.width*.03,vertical: context.height*.012),width: context.width*.03,height: context.height*.01,child: widget.prefixIconName,),
         suffixIcon: widget.hasSuffix
             ? InkWell(
                 onTap: () {

@@ -23,7 +23,8 @@ class PathImage {
       'assets/images/onboarding_background_image/onboarding5.png';
   static const String onboarding6 =
       'assets/images/onboarding_background_image/onboarding6.png';
-
+  static const String homeBg =
+      'assets/images/onboarding_background_image/homeBackgroundImage.png';
   /// images -- general ------------- *
   static const String emptyImage = 'assets/images/general/EmptyImage.png';
   static const String forgetPassword =
@@ -39,35 +40,36 @@ class PathImage {
 
   /// icons -- bottom Nav Bar Icons ------------ *
   static const String exploreSelected =
-      'assets/icons/bottomNavBar_icon/exploreSelected.svg';
+      'assets/icons/bottomNavBar_icon/exploreSelected.png';
   static const String exploreUnselected =
-      'assets/icons/bottomNavBar_icon/exploreUnselected.svg';
+      'assets/icons/bottomNavBar_icon/exploreUnselected.png';
   static const String homeUnselected =
-      'assets/icons/bottomNavBar_icon/homeUnselected.svg';
+      'assets/icons/bottomNavBar_icon/homeUnselected.png';
   static const String homeSelected =
-      'assets/icons/bottomNavBar_icon/homeSelected.svg';
+      'assets/icons/bottomNavBar_icon/homeSelected.png';
   static const String profileSelected =
-      'assets/icons/bottomNavBar_icon/profielSelected.svg';
+      'assets/icons/bottomNavBar_icon/profielSelected.png';
   static const String profileUnselected =
-      'assets/icons/bottomNavBar_icon/profileUnselected.svg';
+      'assets/icons/bottomNavBar_icon/profileUnselected.png';
   static const String searchUnselected =
-      'assets/icons/bottomNavBar_icon/searchUnselected.svg';
+      'assets/icons/bottomNavBar_icon/searchUnselected.png';
   static const String searchSelected =
-      'assets/icons/bottomNavBar_icon/searchSelected.svg';
+      'assets/icons/bottomNavBar_icon/searchSelected.png';
 
   /// icons -- general -------------- *
-  static const String account = 'assets/icons/general/account.svg';
-  static const String arabic = 'assets/icons/general/arabic.svg';
-  static const String bookmark = 'assets/icons/general/bookmark.svg';
-  static const String call = 'assets/icons/general/call.svg';
-  static const String clock = 'assets/icons/general/clock.svg';
-  static const String email = 'assets/icons/general/email.svg';
-  static const String english = 'assets/icons/general/english.svg';
-  static const String favorite = 'assets/icons/general/favorite.svg';
-  static const String folder = 'assets/icons/general/favorite.svg';
-  static const String google = 'assets/icons/general/google.svg';
-  static const String menu = 'assets/icons/general/menue.svg';
-  static const String name = 'assets/icons/general/name.svg';
-  static const String password = 'assets/icons/general/password.svg';
-  static const String star = 'assets/icons/general/star.svg';
+  static const String account = 'assets/icons/general/account.png';
+  static const String arabic = 'assets/icons/general/arabic.png';
+  static const String bookmark = 'assets/icons/general/bookmark.png';
+  static const String call = 'assets/icons/general/call.png';
+  static const String clock = 'assets/icons/general/clock.png';
+  static const String email = 'assets/icons/general/email.png';
+  static const String english = 'assets/icons/general/english.png';
+  static const String favorite = 'assets/icons/general/favorite.png';
+  static const String folder = 'assets/icons/general/favorite.png';
+  static const String google = 'assets/icons/general/google.png';
+  static const String menu = 'assets/icons/general/menue.png';
+  static const String name = 'assets/icons/general/name.png';
+  static const String password = 'assets/icons/general/password.png';
+  static const String star = 'assets/icons/general/star.png';
+  static const String exit = 'assets/icons/general/exit.png';
 }

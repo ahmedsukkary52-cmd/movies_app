@@ -4,15 +4,23 @@ import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
 import 'package:team_flutter_6_movie_app/l10n/app_localizations.dart';
-import 'package:team_flutter_6_movie_app/widget/custom_elevated_button.dart';
-import 'package:team_flutter_6_movie_app/widget/custom_text_form_field.dart';
+import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_elevated_button.dart';
 
 import '../../Utils/color_App.dart';
+import '../authintication/rusable_widget/custom_text_field.dart';
 
 
-class ForgetPasswordScreen extends StatelessWidget {
+class ForgetPasswordScreen extends StatefulWidget {
    ForgetPasswordScreen({super.key});
+
+  @override
+  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
+}
+
+class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   final formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,35 +55,30 @@ class ForgetPasswordScreen extends StatelessWidget {
                  SizedBox(
                    height: context.height*0.02,
                  ),
-               CustomTextFormField(
-                 prefixIcon: Icon(
-                 Icons.email_rounded,color: ColorApp.whiteColor,
+                 CustomTextField(
+                   prefixIconName: Icon(
+                     Icons.email_rounded,
+                     color: ColorApp.whiteColor,
+                   ),
+                   hintText: AppLocalizations.of(context)!.email,
+                   controller: emailController,
+                   validator: (text) {
+                     if (text == null || text.trim().isEmpty) {
+                       return AppLocalizations.of(context)!.please_enter_email;
+                     }
+                     final bool emailValid = RegExp(
+                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                     ).hasMatch(text);
+                     if (!emailValid) {
+                       return AppLocalizations.of(context)!.please_enter_valid_email;
+                     }
+                     return null;
+                   },
                  ),
-                hintText: AppLocalizations.of(context)!.email,
-                 validator: (text) {
-                   if(text == null||text.trim().isEmpty){
-                     return AppLocalizations.of(context)!.please_enter_email;
-                   }
-                   final bool emailValid =
-                   RegExp(
-                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                       .hasMatch(text);
-                   if (!emailValid) {
-                     return AppLocalizations.of(context)!
-                         .please_enter_valid_email;
-                   }
-                   return null;
-                 },
-               ),
                  SizedBox(
                    height: context.height*0.03,
                  ),
-                 CustomElevatedButton(onPressed: () {
-                   checkEmail(context);
-                 },
-                 text: AppLocalizations.of(context)!.verify_email,
-
-                 )
+                 CustomElevatedButton(text: AppLocalizations.of(context)!.verify_email, onPressed: (){checkEmail(context);})
                ],
             ),
           ),
@@ -84,7 +87,7 @@ class ForgetPasswordScreen extends StatelessWidget {
     );
   }
   void checkEmail(BuildContext context) {
-      if(formKey.currentState!.validate()==true) {
+      if(formKey.currentState!.validate()) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context)!.verify_email),

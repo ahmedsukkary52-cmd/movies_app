@@ -5,7 +5,10 @@ import 'package:team_flutter_6_movie_app/Model_Api/login_responce.dart';
 import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
+import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
+import 'package:team_flutter_6_movie_app/logic/login_with_google/login_with_google.dart';
+import 'package:team_flutter_6_movie_app/ui/reusable_widget/alertDialog/alertDialog.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../home/home_screen.dart';
 import '../register/register_screen.dart';
@@ -36,9 +39,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: context.height * 0.3,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: context.height* 0.02),
+                SizedBox(height: context.height * 0.02),
                 CustomTextField(
-                  prefixIconName: PathImage.email,
+                  prefixIconName: Image.asset(PathImage.email),
                   hintText: AppLocalizations.of(context)!.email,
                   controller: emailController,
                   validator: (text) {
@@ -60,22 +63,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomTextField(
                   hasSuffix: true,
                   obsecureText: true,
-                  prefixIconName: PathImage.password,
+                  prefixIconName: Image.asset(PathImage.password),
                   hintText: AppLocalizations.of(context)!.password,
                   controller: passwardController,
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return AppLocalizations.of(context)!.please_enter_password;
-                    }
-                    if (text.length < 6) {
                       return AppLocalizations.of(
                         context,
-                      )!.password_too_short;
+                      )!.please_enter_password;
+                    }
+                    if (text.length < 6) {
+                      return AppLocalizations.of(context)!.password_too_short;
                     }
                     return null;
                   },
                 ),
-                SizedBox(height:context.height* 0.01),
+                SizedBox(height: context.height * 0.01),
                 Row(
                   children: [
                     Spacer(),
@@ -93,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   text: AppLocalizations.of(context)!.login,
                   onPressed: login,
                 ),
-                SizedBox(height:context.height * 0.02),
+                SizedBox(height: context.height * 0.02),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -143,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomElevatedButton(
                   hasIcon: true,
                   text: AppLocalizations.of(context)!.login_with_google,
-                  onPressed: () {},
+                  onPressed: loginWithGoogle
                 ),
                 SizedBox(height: context.height * 0.04),
                 ToggleSwitch(),
@@ -171,6 +174,26 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     } catch (e) {
       showToast("Network Error", bgColor: ColorApp.redColor);
+
+  void loginWithGoogle() async {
+    GoogleAuthService.googleSignIn;
+    ShowAlertDialog.showLoading(context: context);
+    await Future.delayed(const Duration(seconds: 1));
+    ShowAlertDialog.hideLoading(context: context);
+    ShowAlertDialog.showMessage(
+      context: context,
+      message: 'Login Successfully',
+    );
+    await Future.delayed(const Duration(milliseconds: 300));
+    Navigator.pushReplacementNamed(context, RoutesApp.homeRouteName);
+  }
+
+  void login() {
+    if (formKey.currentState!.validate() == true) {
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+        (route) => false,
+      );
     }
   }
   void showToast(String message, {Color bgColor = ColorApp.primaryWallow}) {
