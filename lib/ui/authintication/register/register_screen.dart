@@ -239,7 +239,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           confirmPassword: confirmPasswardController.text,
           name: nameController.text,
           phone: fullPhone,
-          avaterId: context.read<SelectIndexAvatarsState>().selectIndexAvatars
+          avaterId: context.read<SelectIndexAvatarsCubit>().state.selectIndexAvatars
       );
       if (response.statusCode != 400) {
         showToast(response.message ?? "Success",
