@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:team_flutter_6_movie_app/Api/api_manager.dart';
+import 'package:team_flutter_6_movie_app/Model_Api/login_responce.dart';
 import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
@@ -6,23 +9,18 @@ import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
 import 'package:team_flutter_6_movie_app/logic/login_with_google/login_with_google.dart';
 import 'package:team_flutter_6_movie_app/ui/reusable_widget/alertDialog/alertDialog.dart';
-
 import '../../../l10n/app_localizations.dart';
 import '../../home/home_screen.dart';
 import '../register/register_screen.dart';
 import '../rusable_widget/custom_elevated_button.dart';
 import '../rusable_widget/custom_text_field.dart';
 import '../rusable_widget/toggle_switchs.dart';
-
 var formKey = GlobalKey<FormState>();
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
-
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwardController = TextEditingController();
@@ -159,6 +157,23 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+  void login() async {
+    if (!formKey.currentState!.validate()) return;
+    showToast("Loading.....", bgColor: ColorApp.primaryWallow);
+    try {
+      var response = await ApiManager.login(emailController.text, passwardController.text);
+      if (response.token != null) {
+        showToast(response.message ?? "Login Successful", bgColor: ColorApp.primaryWallow);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      } else if (response.statusCode != null) {
+        showToast(response.message ?? "Error: ${response.statusCode}", bgColor: ColorApp.redColor);
+      } else {
+        showToast("Something went wrong", bgColor: ColorApp.redColor);
+      }
+    } catch (e) {
+      showToast("Network Error", bgColor: ColorApp.redColor);
 
   void loginWithGoogle() async {
     GoogleAuthService.googleSignIn;
@@ -180,5 +195,15 @@ class _LoginScreenState extends State<LoginScreen> {
         (route) => false,
       );
     }
+  }
+  void showToast(String message, {Color bgColor = ColorApp.primaryWallow}) {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      backgroundColor: bgColor,
+      textColor: ColorApp.primaryBlack,
+      fontSize: 16.0,
+    );
   }
 }
