@@ -1,84 +1,82 @@
-import 'dart:convert';
-
-RegisterResponse registerResponseFromJson(String str) =>
-    RegisterResponse.fromJson(json.decode(str));
-
-String registerResponseToJson(RegisterResponse data) =>
-    json.encode(data.toJson());
-
 class RegisterResponse {
+    final String? message;
+    final List<String>? messageList;
+    final int? statusCode;
+    final String? error;
+    final RegisterData? data;
     RegisterResponse({
-        this.data,       // ممكن تكون null لو في error
-        this.message,    // ممكن تكون String أو List<String>
-        this.error,      // رسالة الخطأ لو فيه
-        this.statusCode, // statusCode لو فيه
+        this.message,
+        this.messageList,
+        this.statusCode,
+        this.error,
+        this.data,
     });
-
-    Data? data;
-    dynamic message;
-    String? error;
-    int? statusCode;
-
-    factory RegisterResponse.fromJson(Map<dynamic, dynamic> json) =>
-        RegisterResponse(
-            data: json["data"] != null ? Data.fromJson(json["data"]) : null,
-            message: json["message"],
-            error: json["error"],
-            statusCode: json["statusCode"],
+    factory RegisterResponse.fromJson(Map<String, dynamic> json) {
+        return RegisterResponse(
+            message: json['message'] is String ? json['message'] : null,
+            messageList: json['message'] is List
+                ? List<String>.from(json['message'])
+                : null,
+            statusCode: json['statusCode'] as int?,
+            error: json['error'] as String?,
+            data: json['data'] != null ? RegisterData.fromJson(json['data']) : null,
         );
-
-    Map<dynamic, dynamic> toJson() => {
-        "data": data?.toJson(),
-        "message": message,
-        "error": error,
-        "statusCode": statusCode,
-    };
+    }
+    Map<String, dynamic> toJson() {
+        return {
+            'message': message,
+            'messageList': messageList,
+            'statusCode': statusCode,
+            'error': error,
+            'data': data?.toJson(),
+        };
+    }
 }
-
-class Data {
-    Data({
-        required this.createdAt,
+class RegisterData {
+    final String email;
+    final String password;
+    final String name;
+    final String phone;
+    final int avaterId;
+    final String id;
+    final String createdAt;
+    final String updatedAt;
+    final int v;
+    RegisterData({
+        required this.email,
         required this.password,
-        required this.phone,
-        required this.v,
         required this.name,
+        required this.phone,
         required this.avaterId,
         required this.id,
-        required this.email,
+        required this.createdAt,
         required this.updatedAt,
+        required this.v,
     });
-
-    DateTime createdAt;
-    String password;
-    String phone;
-    int v;
-    String name;
-    int avaterId;
-    String id;
-    String email;
-    DateTime updatedAt;
-
-    factory Data.fromJson(Map<dynamic, dynamic> json) => Data(
-        createdAt: DateTime.parse(json["createdAt"]),
-        password: json["password"],
-        phone: json["phone"],
-        v: json["__v"],
-        name: json["name"],
-        avaterId: json["avaterId"],
-        id: json["_id"],
-        email: json["email"],
-        updatedAt: DateTime.parse(json["updatedAt"]),
-    );
-
-    Map<dynamic, dynamic> toJson() => {
-        "createdAt": createdAt.toIso8601String(),
-        "password": password,
-        "phone": phone,
-        "__v": v,
-        "name": name,
-        "avaterId": avaterId,
-        "_id": id,
-        "email": email,
-        "updatedAt": updatedAt.toIso8601String(),
-    };
+    factory RegisterData.fromJson(Map<String, dynamic> json) {
+        return RegisterData(
+            email: json['email'],
+            password: json['password'],
+            name: json['name'],
+            phone: json['phone'],
+            avaterId: json['avaterId'],
+            id: json['_id'],
+            createdAt: json['createdAt'],
+            updatedAt: json['updatedAt'],
+            v: json['__v'],
+        );
+    }
+    Map<String, dynamic> toJson() {
+        return {
+            'email': email,
+            'password': password,
+            'name': name,
+            'phone': phone,
+            'avaterId': avaterId,
+            '_id': id,
+            'createdAt': createdAt,
+            'updatedAt': updatedAt,
+            '__v': v,
+        };
+    }
 }

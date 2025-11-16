@@ -1,49 +1,24 @@
-import 'dart:convert';
-
-LoginResponse loginResponseFromJson(String str) =>
-    LoginResponse.fromJson(json.decode(str));
-
-String loginResponseToJson(LoginResponse data) =>
-    json.encode(data.toJson());
-
 class LoginResponse {
+  final String? message;
+  final String? token;
+  final int? statusCode;
   LoginResponse({
-    this.data,
     this.message,
+    this.token,
     this.statusCode,
   });
-
-  Data? data;
-  String? message;
-  int? statusCode;
-
-  factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
-    data: json["data"] != null && json["data"] is Map<String, dynamic>
-        ? Data.fromJson(json["data"])
-        : null,
-    message: json["message"],
-    statusCode: json["statusCode"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "data": data?.toJson(),
-    "message": message,
-    "statusCode": statusCode,
-  };
-}
-
-class Data {
-  Data({
-    required this.token,
-  });
-
-  String token;
-
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
-    token: json["token"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "token": token,
-  };
+  factory LoginResponse.fromJson(Map<String, dynamic> json) {
+    return LoginResponse(
+      message: json['message'] as String?,
+      token: json['data'] as String?,
+      statusCode: json['statusCode'] as int?,
+    );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'message': message,
+      'token': token,
+      'statusCode': statusCode,
+    };
+  }
 }

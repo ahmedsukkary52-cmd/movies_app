@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
-
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/model/avatars_model.dart';
-
+import '../../../Api/api_manager.dart';
 import '../../../Utils/color_App.dart';
 import '../../../Utils/text_app.dart';
 import '../../../l10n/app_localizations.dart';
@@ -15,20 +15,18 @@ import '../rusable_widget/custom_text_field.dart';
 import '../rusable_widget/toggle_switchs.dart';
 
 var formKey = GlobalKey<FormState>();
-
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
-
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }
-
 class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwardController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController confirmPasswardController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
+  int selectedAvaterId = 1 ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,15 +49,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 enableInfiniteScroll: false,
                 scrollDirection: Axis.horizontal,
                 viewportFraction: 0.45,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    selectedAvaterId = index + 1 ;
+                  });
+                },
               ),
               items: AvatarsModel.avatars.map((imagePath) {
+                int index = AvatarsModel.avatars.indexOf(imagePath);
                 return Builder(
                   builder: (BuildContext context) {
-                    return Container(
-                      width: context.width * 0.4,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(color:ColorApp.transparent),
-                      child: Image.asset(imagePath, fit: BoxFit.contain),
+                    return InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectedAvaterId = index + 1;
+                        });
+                      },
+                      child: Container(
+                        width: context.width * 0.4,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        decoration: BoxDecoration(color: selectedAvaterId == index + 1 ? ColorApp.primaryWallow : ColorApp.transparent,),
+                        child: Image.asset(imagePath, fit: BoxFit.contain),
+                      ),
                     );
                   },
                 );
@@ -138,14 +149,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: confirmPasswardController,
                       validator: (text) {
                         if (text == null || text.trim().isEmpty) {
-                          return AppLocalizations.of(
-                            context,
-                          )!.password_not_match;
+                          return AppLocalizations.of(context)!.password_not_match;
                         }
                         if (text.length < 6) {
-                          return AppLocalizations.of(
-                            context,
-                          )!.password_too_short;
+                          return AppLocalizations.of(context)!.password_too_short;
+                        }
+                        if (text != passwardController.text) {
+                          return AppLocalizations.of(context)!.password_not_match;
                         }
                         return null;
                       },
@@ -154,14 +164,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     CustomTextField(
                       isNumber: true,
                       prefixIconName: PathImage.call,
+                        prefixTxt: '+201*********',
                       hintText: AppLocalizations.of(context)!.phone_number,
                       controller: phoneNumberController,
                       validator: (text) {
                         if (text == null || text.trim().isEmpty) {
                           return AppLocalizations.of(context)!.enter_phone_number;
                         }
+                        if (!RegExp(r'^[0-9]{9}$').hasMatch(text)) {
+                          return 'Enter valid phone number after +20';
+                        }
                         return null;
-                      },
+                      }
                     ),
                     SizedBox(height: context.height * 0.02),
                     CustomElevatedButton(
@@ -180,7 +194,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           onPressed: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => HomeScreen(),
+                                builder: (context) => LoginScreen(),
                               ),
                             );
                           },
@@ -201,13 +215,52 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
-
-  void createAccount() {
-    if (formKey.currentState!.validate() == true) {
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => LoginScreen()),
-        (route) => false,
+  void createAccount() async {
+    if (formKey.currentState!.validate()) {
+      showToast('Loading .....', bgColor: ColorApp.primaryWallow);
+      String fullPhone = '+201${phoneNumberController.text}';
+      var response = await ApiManager.register(
+        email: emailController.text,
+        password: passwardController.text,
+        confirmPassword: confirmPasswardController.text,
+        name: nameController.text,
+        phone: fullPhone,
+        avaterId: selectedAvaterId
       );
+      if (response.statusCode != 400) {
+        showToast(response.message ?? "Success",
+            bgColor: ColorApp.primaryWallow);
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => LoginScreen(),
+          ),
+        );
+        return;
+      }
+      if (response.message != null &&
+          response.message!.isNotEmpty) {
+        showToast(response.message!,
+            bgColor: ColorApp.redColor);
+        return;
+      }
+      if (response.messageList != null &&
+          response.messageList!.isNotEmpty) {
+
+        String errors = response.messageList!.join("\n");
+
+        showToast(errors, bgColor: ColorApp.redColor);
+        return;
+      }
     }
+  }
+  void showToast(String message, {Color bgColor = ColorApp.primaryWallow}) {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      backgroundColor: bgColor,
+      textColor: ColorApp.primaryBlack,
+      fontSize: 16.0,
+    );
   }
 }

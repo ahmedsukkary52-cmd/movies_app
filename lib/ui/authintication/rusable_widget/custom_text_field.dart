@@ -12,6 +12,7 @@ class CustomTextField extends StatefulWidget {
   final String hintText;
   final TextEditingController? controller;
   final OnValidator validator;
+  final String? prefixTxt ;
   const CustomTextField({
     super.key,
     required this.prefixIconName,
@@ -21,6 +22,7 @@ class CustomTextField extends StatefulWidget {
     this.hasSuffix = false,
     this.obsecureText = false,
     this.isNumber = false,
+    this.prefixTxt = ''
   });
 
   @override
@@ -45,6 +47,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       validator: widget.validator,
       obscureText: isObsecured,
       decoration: InputDecoration(
+        prefixText: widget.prefixTxt,
         hoverColor:ColorApp.whiteColor,
         filled: true,
         fillColor: ColorApp.grayColor,
