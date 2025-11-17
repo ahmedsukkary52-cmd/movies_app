@@ -10,6 +10,7 @@ import 'package:team_flutter_6_movie_app/logic/login_with_google/login_with_goog
 import 'package:team_flutter_6_movie_app/ui/reusable_widget/alertDialog/alertDialog.dart';
 
 import '../../../Api/api_manager.dart';
+import '../../../Utils/user_session_token.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../home/home_screen.dart';
 import '../register/register_screen.dart';
@@ -88,7 +89,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Spacer(),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        ///todo: forget password screen
+                        Navigator.of(context).pushNamed(RoutesApp.forgetPasswordScreen);
+                      },
                       child: Text(
                         AppLocalizations.of(context)!.forget_password,
                         style: TextApp.regular14Wallow,
@@ -181,6 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       var response = await ApiManager.login(emailController.text, passwardController.text);
       if (response.token != null) {
+        UserSession.token = response.token!;
         showToast(response.message ?? "Login Successful", bgColor: ColorApp.primaryWallow);
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => HomeScreen()),
