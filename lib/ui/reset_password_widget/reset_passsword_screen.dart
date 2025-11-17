@@ -1,28 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
+import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_elevated_button.dart';
 
 import '../../Utils/assets_app.dart';
 import '../../Utils/color_App.dart';
 import '../../Utils/text_app.dart';
+import '../../Utils/user_session_token.dart';
 import '../../l10n/app_localizations.dart';
+import '../../logic/API/auth_api/auth_api_manager.dart';
 import '../authintication/rusable_widget/custom_text_field.dart';
 
-class ResetPassswordScreen extends StatelessWidget {
-   ResetPassswordScreen({super.key});
+class ResetPassswordScreen extends StatefulWidget {
+  ResetPassswordScreen({super.key});
+
+  @override
+  State<ResetPassswordScreen> createState() => _ResetPassswordScreenState();
+}
+
+class _ResetPassswordScreenState extends State<ResetPassswordScreen> {
   final formKey = GlobalKey<FormState>();
+
+  final TextEditingController oldPassController = TextEditingController();
+  final TextEditingController newPassController = TextEditingController();
+  final TextEditingController checkPassController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController oldPassController = TextEditingController();
-    final TextEditingController newPassController= TextEditingController();
-    final TextEditingController checkPassController= TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true, /// back button
-        iconTheme: const IconThemeData(
-          color: ColorApp.primaryWallow,
-        ),
+        automaticallyImplyLeading: true,
+        iconTheme: const IconThemeData(color: ColorApp.primaryWallow),
         backgroundColor: ColorApp.primaryBlack,
         centerTitle: true,
         title: Text(
@@ -33,8 +41,8 @@ class ResetPassswordScreen extends StatelessWidget {
       backgroundColor: ColorApp.primaryBlack,
       body: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: context.width*0.04
-            ,vertical: context.height*0.02
+          horizontal: context.width * 0.04,
+          vertical: context.height * 0.02,
         ),
         child: SingleChildScrollView(
           child: Form(
@@ -43,18 +51,11 @@ class ResetPassswordScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ClipRRect(
-                  child: Image(image: AssetImage(
-                      PathImage.forgetPassword
-                  )),
+                  child: Image(image: AssetImage(PathImage.forgetPassword)),
                 ),
-                SizedBox(
-                  height: context.height*0.02,
-                ),
+                SizedBox(height: context.height * 0.02),
                 CustomTextField(
-                  prefixIconName: Icon(
-                    Icons.lock,
-                    color: ColorApp.whiteColor,
-                  ),
+                  prefixIconName: Icon(Icons.lock, color: ColorApp.whiteColor),
                   hintText: AppLocalizations.of(context)!.old_pass,
                   controller: oldPassController,
                   validator: (text) {
@@ -66,14 +67,9 @@ class ResetPassswordScreen extends StatelessWidget {
                   hasSuffix: true,
                   obsecureText: true,
                 ),
-                SizedBox(
-                 height: context.height*0.02,
-                 ),
+                SizedBox(height: context.height * 0.02),
                 CustomTextField(
-                  prefixIconName: Icon(
-                    Icons.lock,
-                    color: ColorApp.whiteColor,
-                  ),
+                  prefixIconName: Icon(Icons.lock, color: ColorApp.whiteColor),
                   hintText: AppLocalizations.of(context)!.new_pass,
                   controller: newPassController,
                   validator: (text) {
@@ -85,17 +81,12 @@ class ResetPassswordScreen extends StatelessWidget {
                     }
                     return null;
                   },
-                  hasSuffix: true,      // عشان تظهر أيقونة show/hide
-                  obsecureText: true,   // عشان يبدأ مخفي
+                  hasSuffix: true,
+                  obsecureText: true,
                 ),
-                SizedBox(
-                  height: context.height*0.02,
-                ),
+                SizedBox(height: context.height * 0.02),
                 CustomTextField(
-                  prefixIconName: Icon(
-                    Icons.password,
-                    color: ColorApp.whiteColor,
-                  ),
+                  prefixIconName: Icon(Icons.password, color: ColorApp.whiteColor),
                   hintText: AppLocalizations.of(context)!.new_pass,
                   controller: checkPassController,
                   validator: (text) {
@@ -110,13 +101,13 @@ class ResetPassswordScreen extends StatelessWidget {
                   hasSuffix: true,
                   obsecureText: true,
                 ),
-                SizedBox(
-                  height: context.height*0.02,
+                SizedBox(height: context.height * 0.02),
+                CustomElevatedButton(
+                  text: AppLocalizations.of(context)!.reset_password,
+                  onPressed: () {
+                    checkPass(context, oldPassController.text, newPassController.text);
+                  },
                 ),
-                CustomElevatedButton(text: AppLocalizations.of(context)!.reset_password, onPressed: (){
-                  checkPass(context);
-                  // todo: reset Password
-                })
               ],
             ),
           ),
@@ -124,16 +115,57 @@ class ResetPassswordScreen extends StatelessWidget {
       ),
     );
   }
-  void checkPass(BuildContext context) {
-    if(formKey.currentState!.validate()==true) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context)!.reset_password),
-          backgroundColor: Colors.green,
-        ),
-      );
-    } else {
-      return;
+
+  void checkPass(BuildContext context, String oldPass, String newPass) async {
+    if (formKey.currentState!.validate() == true) {
+      try {
+        final token = UserSession.token;
+        if (token == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("No token found. Please login again."),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
+        if (oldPass == newPass) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("New password cannot be the same as old password"),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
+        final message = await AuthApiManager.resetPassword(
+          oldPassword: oldPass,
+          newPassword: newPass,
+          token: token,
+        );
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(message), backgroundColor: Colors.green),
+        );
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          RoutesApp.loginRouteName,
+              (route) => false,
+        );
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Something went wrong. Please try again."),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
+  }
+
+  @override
+  void dispose() {
+    oldPassController.dispose();
+    newPassController.dispose();
+    checkPassController.dispose();
+    super.dispose();
   }
 }
