@@ -1,15 +1,17 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
-import 'package:team_flutter_6_movie_app/logic/login_with_google/login_with_google.dart';
 import 'package:team_flutter_6_movie_app/ui/reusable_widget/alertDialog/alertDialog.dart';
 
 import '../../../Api/api_manager.dart';
+import '../../../cubits/login_with_google_cubit/google_login_cubit.dart';
+import '../../../cubits/login_with_google_cubit/google_login_state.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../home/home_screen.dart';
 import '../register/register_screen.dart';
@@ -148,11 +150,31 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 SizedBox(height: context.height * 0.02),
-                CustomElevatedButton(
-                    hasIcon: true,
-                    text: AppLocalizations.of(context)!.login_with_google,
-                    onPressed: loginWithGoogle
+              BlocListener<GoogleLoginCubit, GoogleLoginState>(
+                listener: (context, state) {
+                  if (state.isLoading) {
+                    ShowAlertDialog.showLoading(context: context);
+                  } else {
+                    ShowAlertDialog.hideLoading(context: context);
+
+                    if (state.isLoggedIn) {
+                      showToast('Login Successfully');
+                      Future.delayed(const Duration(milliseconds: 300), () {
+                        Navigator.pushReplacementNamed(context, RoutesApp.homeRouteName);
+                      });
+                    } else if (state.error != null) {
+                      showToast("${state.error}",bgColor: ColorApp.redColor);
+                    }
+                  }
+                },
+                child: CustomElevatedButton(
+                  hasIcon: true,
+                  text: AppLocalizations.of(context)!.login_with_google,
+                  onPressed: () {
+                    context.read<GoogleLoginCubit>().signInWithGoogle();
+                  },
                 ),
+              ),
                 SizedBox(height: context.height * 0.04),
                 ToggleSwitch(),
               ],
@@ -161,19 +183,6 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  void loginWithGoogle() async {
-    GoogleAuthService.googleSignIn;
-    ShowAlertDialog.showLoading(context: context);
-    await Future.delayed(const Duration(seconds: 1));
-    ShowAlertDialog.hideLoading(context: context);
-    ShowAlertDialog.showMessage(
-      context: context,
-      message: 'Login Successfully',
-    );
-    await Future.delayed(const Duration(milliseconds: 300));
-    Navigator.pushReplacementNamed(context, RoutesApp.homeRouteName);
   }
   void login() async {
     if (!formKey.currentState!.validate()) return;
