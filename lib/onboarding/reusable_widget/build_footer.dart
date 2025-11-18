@@ -45,7 +45,6 @@ class BuildFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: haveBack ? context.height * height : context.height * .3,
       width: double.infinity,
       decoration: BoxDecoration(
         color: ColorApp.primaryBlack,
@@ -55,7 +54,7 @@ class BuildFooter extends StatelessWidget {
         ),
       ),
       padding: EdgeInsetsGeometry.directional(
-        bottom: 0,
+        bottom: context.height * .02,
         start: context.width * .04,
         end: context.width * .04,
         top: context.height * .035,

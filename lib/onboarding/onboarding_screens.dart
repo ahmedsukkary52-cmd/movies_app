@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
+import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
@@ -46,7 +47,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
 
         curve: Curves.easeInOutCubic,
         animationDuration: 600,
-        globalBackgroundColor: Colors.black,
+        globalBackgroundColor: ColorApp.primaryBlack,
 
         onChange: (index) {
           currentIndex = index;

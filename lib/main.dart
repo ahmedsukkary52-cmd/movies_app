@@ -7,11 +7,14 @@ import 'package:team_flutter_6_movie_app/Utils/app_theme.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/cubits/cubitToken/token_cubit.dart';
 import 'package:team_flutter_6_movie_app/cubits/login_with_google_cubit/google_login_cubit.dart';
+import 'package:team_flutter_6_movie_app/ui/Main%20tab%20Bottom%20Nav%20Bar/main_screen_bottomNav.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/login/login_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/register/register_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/home/home_screen.dart';
+import 'package:team_flutter_6_movie_app/ui/profile/profile_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/reset_password_widget/forget_password_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/reset_password_widget/reset_passsword_screen.dart';
+import 'package:team_flutter_6_movie_app/ui/search/search_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/update_Profile/update_profile.dart';
 
 import 'Bloc/local_state.dart';
@@ -49,6 +52,9 @@ class MoviesApp extends StatelessWidget {
           initialRoute: RoutesApp.onboardingRouteName,
           routes: {
             RoutesApp.loginRouteName: (context) => LoginScreen(),
+            RoutesApp.mainScreenBottomNav: (context) => MainScreenBottomNav(),
+            RoutesApp.profileScreen: (context) => ProfileScreen(),
+            RoutesApp.searchScreen: (context) => SearchScreen(),
             RoutesApp.homeRouteName: (context) => HomeScreen(),
             RoutesApp.registerRouteName: (context) => RegisterScreen(),
             RoutesApp.onboardingRouteName: (context) => OnboardingScreens(),
