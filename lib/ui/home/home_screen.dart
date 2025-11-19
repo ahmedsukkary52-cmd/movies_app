@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
               else
                 SizedBox(
                   height: context.height * .35,
-                  child: const Center(child: Text('No movies')),
+                  child: Center(child: Text('No movies',style: TextApp.medium36White,)),
                 ),
 
               SizedBox(height: context.height * .03),
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
               if (selectedGenres.isEmpty)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: context.height * .04),
-                  child: Text('No categories available', style: TextApp.regular16Wallow),
+                  child: Text('No categories available', style: TextApp.medium36White),
                 )
               else
                 SizedBox(height: context.height*.18,),

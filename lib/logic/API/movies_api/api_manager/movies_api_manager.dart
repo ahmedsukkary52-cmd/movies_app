@@ -15,7 +15,6 @@ class MoviesApiManager {
      throw Exception("Server Error: ${response.statusCode}");
    }
    final jsonMap = jsonDecode(response.body);
-      print(jsonMap);
    return MoviesResponse.fromJson(jsonMap);
 
     }catch(e){

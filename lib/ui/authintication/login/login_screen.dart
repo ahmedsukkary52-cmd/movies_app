@@ -7,13 +7,14 @@ import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
+import 'package:team_flutter_6_movie_app/ui/Main%20tab%20Bottom%20Nav%20Bar/main_screen_bottomNav.dart';
 import 'package:team_flutter_6_movie_app/ui/reusable_widget/alertDialog/alertDialog.dart';
+
 import '../../../Api/api_manager.dart';
+import '../../../Utils/user_session_token.dart';
 import '../../../cubits/login_with_google_cubit/google_login_cubit.dart';
 import '../../../cubits/login_with_google_cubit/google_login_state.dart';
-import '../../../Utils/user_session_token.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../home/home_screen.dart';
 import '../register/register_screen.dart';
 import '../rusable_widget/custom_elevated_button.dart';
 import '../rusable_widget/custom_text_field.dart';
@@ -163,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (state.isLoggedIn) {
                       showToast('Login Successfully');
                       Future.delayed(const Duration(milliseconds: 300), () {
-                        Navigator.pushReplacementNamed(context, RoutesApp.homeRouteName);
+                        Navigator.pushReplacementNamed(context, RoutesApp.mainScreenBottomNav);
                       });
                     } else if (state.error != null) {
                       showToast("${state.error}",bgColor: ColorApp.redColor);
@@ -196,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
         UserSession.token = response.token!;
         showToast(response.message ?? "Login Successful", bgColor: ColorApp.primaryWallow);
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => MainScreenBottomNav()),
         );
       } else if (response.statusCode != null) {
         showToast(response.message ?? "Error: ${response.statusCode}", bgColor: ColorApp.redColor);

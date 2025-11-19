@@ -16,9 +16,6 @@ class MoviesController {
     try {
       final MoviesResponse response = await MoviesApiManager.getMoviesList(page: currentPage);
 
-      print('Response status: ${response.status}');
-      print('Movies count in data: ${response.data?.movies?.length}'); // <--- هنا
-
       if (response.status == "ok" && response.data?.movies != null) {
         allMovies = response.data!.movies!;
         hasMore = allMovies.isNotEmpty;
