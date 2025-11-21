@@ -10,11 +10,11 @@ import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
 import 'package:team_flutter_6_movie_app/ui/Main%20tab%20Bottom%20Nav%20Bar/main_screen_bottomNav.dart';
 import 'package:team_flutter_6_movie_app/ui/reusable_widget/alertDialog/alertDialog.dart';
 
-import '../../../Api/api_manager.dart';
 import '../../../Utils/user_session_token.dart';
 import '../../../cubits/login_with_google_cubit/google_login_cubit.dart';
 import '../../../cubits/login_with_google_cubit/google_login_state.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../logic/API/auth_api/auth_api_manager/login_and_register_api_manager/login_and_register_api_manager.dart';
 import '../register/register_screen.dart';
 import '../rusable_widget/custom_elevated_button.dart';
 import '../rusable_widget/custom_text_field.dart';
@@ -205,7 +205,8 @@ class _LoginScreenState extends State<LoginScreen> {
         showToast("Something went wrong", bgColor: ColorApp.redColor);
       }
     } catch (e) {
-      showToast("Network Error", bgColor: ColorApp.redColor);
+      showToast("$e", bgColor: ColorApp.redColor);
+      print('$e');
     }
   }
   void showToast(String message, {Color bgColor = ColorApp.primaryWallow}) {

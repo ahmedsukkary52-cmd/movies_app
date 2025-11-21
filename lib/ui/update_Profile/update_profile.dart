@@ -3,18 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
-import 'package:team_flutter_6_movie_app/apis/api_manager.dart';
 import 'package:team_flutter_6_movie_app/cubits/cubitToken/token_cubit.dart';
 import 'package:team_flutter_6_movie_app/cubits/cubitToken/token_state.dart';
 import 'package:team_flutter_6_movie_app/l10n/app_localizations.dart';
-import 'package:team_flutter_6_movie_app/model/avatars_model.dart';
-import 'package:team_flutter_6_movie_app/model/update_profile_request.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_elevated_button.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_text_field.dart';
 import 'package:team_flutter_6_movie_app/ui/update_Profile/showBottomSheet.dart';
 
 import '../../Utils/text_app.dart';
 import '../../cubits/cubit/select_index_avatars_cubit.dart';
+import '../../logic/API/profile_api/profile_api_manager/api_manager.dart';
+import '../../logic/API/profile_api/profile_model/avatars_model.dart';
+import '../../logic/API/profile_api/profile_model/update_profile_request.dart';
 
 class UpdateProfile extends StatefulWidget {
   UpdateProfile({super.key});

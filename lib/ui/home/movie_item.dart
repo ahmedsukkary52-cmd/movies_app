@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
-import 'package:team_flutter_6_movie_app/logic/API/movies_api/movies_model/movies_model.dart';
 
 import '../../Utils/assets_app.dart';
+import '../../logic/API/movies_list_api/movies_model/movies_model.dart';
 
 class MovieItem extends StatelessWidget {
   final Movies movie;

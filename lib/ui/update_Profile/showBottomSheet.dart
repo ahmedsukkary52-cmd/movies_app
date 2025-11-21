@@ -4,7 +4,7 @@ import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 
 import '../../Utils/color_App.dart';
 import '../../cubits/cubit/select_index_avatars_cubit.dart';
-import '../../model/avatars_model.dart';
+import '../../logic/API/profile_api/profile_model/avatars_model.dart';
 import 'avatars_image.dart';
 
 void bottomSheet(BuildContext parentContext) {

@@ -1,11 +1,13 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:team_flutter_6_movie_app/apis/api_constants.dart';
-import 'package:team_flutter_6_movie_app/apis/end_points.dart';
-import 'package:team_flutter_6_movie_app/model/delete_profile.dart';
-import 'package:team_flutter_6_movie_app/model/update_profile_request.dart';
-import 'package:team_flutter_6_movie_app/model/update_profile_response.dart';
+
+import '../profile_model/delete_profile.dart';
+import '../profile_model/update_profile_request.dart';
+import '../profile_model/update_profile_response.dart';
+import 'api_constants.dart';
+import 'end_points.dart';
+
 
 class ApiManager {
   static Future<UpdateProfileResponse> updateProfilePatch({
