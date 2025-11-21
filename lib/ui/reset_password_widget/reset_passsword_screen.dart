@@ -8,7 +8,7 @@ import '../../Utils/color_App.dart';
 import '../../Utils/text_app.dart';
 import '../../Utils/user_session_token.dart';
 import '../../l10n/app_localizations.dart';
-import '../../logic/API/auth_api/auth_api_manager.dart';
+import '../../logic/API/auth_api/auth_api_manager/reset_password_api_manager/reset_password_api_manager.dart';
 import '../authintication/rusable_widget/custom_text_field.dart';
 
 class ResetPassswordScreen extends StatefulWidget {

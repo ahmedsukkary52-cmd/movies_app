@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
+
 import '../../Utils/text_app.dart';
-import '../../logic/API/movies_api/movies_model/movies_model.dart';
+import '../../logic/API/movies_list_api/movies_model/movies_model.dart';
 import 'movie_item.dart';
 
 class CategorySection extends StatelessWidget {

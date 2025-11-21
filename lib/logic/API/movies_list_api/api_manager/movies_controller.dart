@@ -1,5 +1,6 @@
-import 'package:team_flutter_6_movie_app/logic/API/movies_api/api_manager/movies_api_manager.dart';
-import 'package:team_flutter_6_movie_app/logic/API/movies_api/movies_model/movies_model.dart';
+
+import '../movies_model/movies_model.dart';
+import 'movies_api_manager.dart';
 
 class MoviesController {
   bool isLoading = false;

@@ -1,8 +1,9 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
-import 'auth_api_constant.dart';
-import 'auth_api_endpoint.dart';
+import '../auth_api_constant.dart';
+import '../auth_api_endpoint.dart';
 
 class AuthApiManager {
   static Future<String> resetPassword({
