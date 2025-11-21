@@ -6,8 +6,9 @@ import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
 import 'package:team_flutter_6_movie_app/ui/home/build_category_section.dart';
 import 'package:team_flutter_6_movie_app/ui/home/movie_item.dart';
 
-import '../../logic/API/movies_api/api_manager/movies_controller.dart';
-import '../../logic/API/movies_api/movies_model/movies_model.dart';
+import '../../logic/API/movies_list_api/api_manager/movies_controller.dart';
+import '../../logic/API/movies_list_api/movies_model/movies_model.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
