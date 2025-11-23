@@ -5,7 +5,6 @@ import '../../../Utils/color_App.dart';
 import '../../../Utils/text_app.dart';
 
 typedef OnValidator = String? Function(String?)?;
-
 class CustomTextField extends StatefulWidget {
   final Widget prefixIconName;
   final bool hasSuffix;

@@ -25,7 +25,7 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: context.height * 0.06,
+      height: context.height*0.06,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: hasBorder ? ColorApp.transparent : background,
@@ -38,16 +38,16 @@ class CustomElevatedButton extends StatelessWidget {
         onPressed: onPressed,
         child: hasIcon == true
             ? Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ImageIcon(
-                    AssetImage( PathImage.google ),
-                    color: ColorApp.primaryBlack,
-                    size: 22,
-                  ),
-                   SizedBox(width: context.width* .02),
-                  Text(text, style: TextApp.regular20black),
-                ],)
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ImageIcon(
+              AssetImage( PathImage.google ),
+              color: ColorApp.primaryBlack,
+              size: 22,
+            ),
+            SizedBox(width: context.width* .02),
+            Text(text, style: TextApp.regular20black),
+          ],)
             : Text(text, style: textStyle ?? TextApp.regular20black),
       ),
     );
