@@ -5,14 +5,22 @@ import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
 
 class CustomElevatedButton extends StatelessWidget {
+  final double? height;
   final TextStyle? textStyle ;
   final Color background;
   final bool hasIcon;
   final String text;
+  final String? iconImage;
+  final Color? iconColor;
   final VoidCallback? onPressed;
   final bool hasBorder;
+  final Widget? customWidgetWithIcon;
   const CustomElevatedButton({
     super.key,
+    this.iconImage,
+    this.customWidgetWithIcon,
+    this.height,
+    this.iconColor,
     this.hasIcon = false,
     required this.text,
     required this.onPressed,
@@ -25,7 +33,7 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: context.height * 0.06,
+      height: height ?? context.height * 0.06,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: hasBorder ? ColorApp.transparent : background,
@@ -37,12 +45,12 @@ class CustomElevatedButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         child: hasIcon == true
-            ? Row(
+            ? customWidgetWithIcon ??Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ImageIcon(
-                    AssetImage( PathImage.google ),
-                    color: ColorApp.primaryBlack,
+                    AssetImage( iconImage ??PathImage.google ),
+                    color: iconColor ??ColorApp.primaryBlack,
                     size: 22,
                   ),
                    SizedBox(width: context.width* .02),

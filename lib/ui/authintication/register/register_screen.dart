@@ -27,11 +27,11 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwardController = TextEditingController();
-  TextEditingController nameController = TextEditingController();
-  TextEditingController confirmPasswardController = TextEditingController();
-  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController emailController = TextEditingController(text: 'ahmed112@gmail.com');
+  TextEditingController passwardController = TextEditingController(text: 'Ahmed123@');
+  TextEditingController nameController = TextEditingController(text: 'Ahmed');
+  TextEditingController confirmPasswardController = TextEditingController(text: 'Ahmed123@');
+  TextEditingController phoneNumberController = TextEditingController(text: "123456789");
 
   @override
   Widget build(BuildContext context) {
