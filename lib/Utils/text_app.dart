@@ -13,6 +13,11 @@ class TextApp {
     fontWeight: FontWeight.bold,
     color: ColorApp.whiteColor,
   );
+  static final TextStyle bold36White = GoogleFonts.roboto(
+    fontSize: 36,
+    fontWeight: FontWeight.bold,
+    color: ColorApp.whiteColor,
+  );
   static final TextStyle regular16White = GoogleFonts.roboto(
     fontSize: 16,
     fontWeight: FontWeight.normal,
