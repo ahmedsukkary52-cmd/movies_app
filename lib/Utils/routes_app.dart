@@ -9,4 +9,5 @@ class RoutesApp {
   static const String mainScreenBottomNav = 'mainTab';
   static const String profileScreen = 'profileScreen';
   static const String searchScreen = 'searchScreen';
+  static const String exploreScreen = 'exploreScreen';
 }
