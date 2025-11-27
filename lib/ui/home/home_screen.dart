@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
 import 'package:team_flutter_6_movie_app/ui/home/build_category_section.dart';
 import 'package:team_flutter_6_movie_app/ui/home/movie_item.dart';
 
+import '../../cubits/bottomNavBarCubit/bottom_nav_cubit.dart';
 import '../../logic/API/movies_list_api/api_manager/movies_controller.dart';
 import '../../logic/API/movies_list_api/movies_model/movies_model.dart';
 
@@ -125,9 +127,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ...selectedGenres.map((g) => CategorySection(
                     genre: g,
                     movies: moviesByGenre[g] ?? [],
-                    onSeeMore: (){
-                      // todo: navigation to categories tab
+                    onSeeMore: () {
+                      // نحدد الـ genre المختار في Cubit
+                      context.read<NavigationCubit>().selectGenre(g);
+                      // بعد كده نروح للـ Explore tab
+                      context.read<NavigationCubit>().changeTab(2);
                     }
+
                 )),
             ],
           ),

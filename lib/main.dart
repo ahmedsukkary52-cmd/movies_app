@@ -10,6 +10,7 @@ import 'package:team_flutter_6_movie_app/cubits/login_with_google_cubit/google_l
 import 'package:team_flutter_6_movie_app/ui/Main%20tab%20Bottom%20Nav%20Bar/main_screen_bottomNav.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/login/login_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/register/register_screen.dart';
+import 'package:team_flutter_6_movie_app/ui/explore_screen/explore_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/home/home_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/profile/profile_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/reset_password_widget/forget_password_screen.dart';
@@ -18,6 +19,7 @@ import 'package:team_flutter_6_movie_app/ui/search/search_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/update_Profile/update_profile.dart';
 
 import 'Bloc/local_state.dart';
+import 'cubits/bottomNavBarCubit/bottom_nav_cubit.dart';
 import 'cubits/cubit/select_index_avatars_cubit.dart';
 import 'firebase_options.dart';
 import 'l10n/app_localizations.dart';
@@ -31,6 +33,7 @@ void main() async{
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => LocaleBloc()),
+        BlocProvider(create: (context) => NavigationCubit()),
         BlocProvider(create: (context) => SelectIndexAvatarsCubit()),
         BlocProvider(create: (context) => TokenCubit()),
         BlocProvider(create: (context) => GoogleLoginCubit()),
@@ -61,6 +64,7 @@ class MoviesApp extends StatelessWidget {
             RoutesApp.updateProfileRouteName: (context) => UpdateProfile(),
             RoutesApp.forgetPasswordScreen: (context) => ForgetPasswordScreen(),
             RoutesApp.resetPasswordScreen: (context) => ResetPassswordScreen(),
+            RoutesApp.exploreScreen: (context) => ExploreScreen(),
           },
           localizationsDelegates: const [
             AppLocalizations.delegate,

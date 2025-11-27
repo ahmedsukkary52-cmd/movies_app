@@ -83,4 +83,15 @@ class TextApp {
     fontWeight: FontWeight.w900,
     color: ColorApp.primaryWallow,
   );
+
+  static final TextStyle bold20Wallow = GoogleFonts.roboto(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: ColorApp.primaryWallow,
+  );
+  static final TextStyle bold20Black = GoogleFonts.roboto(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: ColorApp.primaryBlack,
+  );
 }
