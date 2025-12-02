@@ -91,36 +91,14 @@ flutter:
     - assets/images/onboarding_background_image/onboarding4.png
     - assets/images/onboarding_background_image/onboarding5.png
     - assets/images/onboarding_background_image/onboarding6.png
-    - assets/images/onboarding_background_image/homeBackgroundImage.png
+    #- assets/images/onboarding_background_image/homeBackgroundImage.png
     - assets/images/general/EmptyImage.png
     - assets/images/general/forgetPassword.png
     - assets/images/general/startMoveBotton.png
     - assets/images/splash/branding.png
     - assets/images/splash/splashLogo.png
-    - assets/icons/bottomNavBar_icon/exploreSelected.png
-    - assets/icons/bottomNavBar_icon/exploreUnselected.png
-    - assets/icons/bottomNavBar_icon/homeUnselected.png
-    - assets/icons/bottomNavBar_icon/homeSelected.png
-    - assets/icons/bottomNavBar_icon/profielSelected.png
-    - assets/icons/bottomNavBar_icon/profileUnselected.png
-    - assets/icons/bottomNavBar_icon/searchUnselected.png
-    - assets/icons/bottomNavBar_icon/searchSelected.png
-    - assets/icons/general/account.png
-    - assets/icons/general/arabic.png
-    - assets/icons/general/bookmark.png
-    - assets/icons/general/call.png
-    - assets/icons/general/clock.png
-    - assets/icons/general/email.png
-    - assets/icons/general/english.png
-    - assets/icons/general/favorite.png
-    - assets/icons/general/favorite.png
-    - assets/icons/general/google.png
-    - assets/icons/general/menue.png
-    - assets/icons/general/name.png
-    - assets/icons/general/password.png
-    - assets/icons/general/star.png
-    - assets/icons/general/exit.png
-  #    - assets/images/
+
+    - assets/images/
   #    - assets/icons/
   #   - images/a_dot_ham.jpeg
 
