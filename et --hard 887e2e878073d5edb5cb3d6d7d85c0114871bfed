@@ -1,0 +1,240 @@
+[33mcommit b20893d8021cb5ca97e068005038e2cfa5209191[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfix-errors-in-login-and-register[m[33m, [m[1;31mmovies_app/developer[m[33m, [m[1;32mdeveloper[m[33m)[m
+Merge: beb4e9c 887e2e8
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sun Nov 16 16:02:17 2025 +0200
+
+    Merge pull request #17 from ahmedsukkary52-cmd/login-and-register
+    
+    Login and register
+
+[33mcommit 887e2e878073d5edb5cb3d6d7d85c0114871bfed[m[33m ([m[1;31mmovies_app/login-and-register[m[33m)[m
+Merge: 2467b1f beb4e9c
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sun Nov 16 16:02:02 2025 +0200
+
+    Merge branch 'developer' into login-and-register
+
+[33mcommit 2467b1fceec200e459c67a73784b1bbb5ae1b9c7[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Sun Nov 16 05:24:03 2025 +0200
+
+    login & register authintication
+
+[33mcommit beb4e9c64bc2c337a75a683fc23d912272067093[m
+Merge: fe153f1 d3a0492
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sat Nov 15 18:54:02 2025 +0200
+
+    Merge pull request #16 from ahmedsukkary52-cmd/feature/update_profile_logic
+    
+    add update profile logic.
+
+[33mcommit d3a04929857f4a5659fabf5e92d01ce15ad0224a[m[33m ([m[1;31mmovies_app/feature/update_profile_logic[m[33m)[m
+Merge: 4fe5de6 fe153f1
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sat Nov 15 18:53:46 2025 +0200
+
+    Merge branch 'developer' into feature/update_profile_logic
+
+[33mcommit fe153f1fc098e01fcaa6c6b326ea38410f1b21e3[m
+Merge: d51d5e3 c8c9722
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sat Nov 15 03:15:35 2025 +0200
+
+    Merge pull request #15 from ahmedsukkary52-cmd/homeTab
+    
+    Add home tab UI + Logic
+
+[33mcommit c8c9722c78d291ddd75b4f7b114569bd07b45224[m[33m ([m[1;31mmovies_app/homeTab[m[33m, [m[1;32mhomeTab[m[33m)[m
+Author: ahmed <ahmedsukkary52##@gmail.com>
+Date:   Sat Nov 15 03:10:15 2025 +0200
+
+    Add home tab UI + Logic
+    fix icons in field and button
+    Add image
+    Add color to loading in theme
+
+[33mcommit 4fe5de6b4dff147ab3eb0f3e7d8044f86f7876fd[m
+Author: THE-BEST0 <abdullahhussein@gmail.com>
+Date:   Fri Nov 14 10:36:34 2025 +0200
+
+    add update profile logic.
+    add delete profile.
+
+[33mcommit c6b11229fd0ce420c1c71e581382bc37fbf7f154[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Thu Nov 13 18:49:32 2025 +0200
+
+    model login and register responce
+
+[33mcommit a63caddea431925b58aacf7133971c7711d84ea0[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Thu Nov 13 03:54:31 2025 +0200
+
+    add http package and create model from json to object and add internet access in androidmanifest.xml
+
+[33mcommit d51d5e31ebc168283b1247bc944281ec6fe7cf8c[m[33m ([m[1;32micons[m[33m)[m
+Merge: a57cea2 8841bd2
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Wed Nov 12 16:49:10 2025 +0200
+
+    Merge pull request #14 from ahmedsukkary52-cmd/login-with-google
+    
+    Add Login with google without called API or Firebase
+
+[33mcommit 8841bd21f193119d8debef173a7db06e2c3851cc[m[33m ([m[1;31mmovies_app/login-with-google[m[33m, [m[1;32mlogin-with-google[m[33m)[m
+Author: ahmed <ahmedsukkary52##@gmail.com>
+Date:   Wed Nov 12 16:44:57 2025 +0200
+
+    Add Login with google without called API or Firebase
+    Add Alert Dialog
+
+[33mcommit a57cea28a1d5d832d39f8fbe01add391329876b4[m
+Merge: 1257523 7de3891
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Mon Nov 10 03:54:57 2025 +0200
+
+    Merge pull request #13 from ahmedsukkary52-cmd/fix-bransh
+    
+    Fix all branches
+
+[33mcommit 7de3891248c927f452ceafb9078388052f67850d[m[33m ([m[1;31mmovies_app/fix-bransh[m[33m, [m[1;32mfix-bransh[m[33m)[m
+Author: ahmed <ahmedsukkary52##@gmail.com>
+Date:   Mon Nov 10 03:46:50 2025 +0200
+
+    + fix build footer
+    + fix custom elevated button
+    + fix custom text field
+    + del custom elevated and text form field
+    + fix update profile
+    + fix onboarding
+    + fix login and register
+    + fix reset passwords
+    + del update name phone
+    + login and home directory
+    + make all avatar connection
+
+[33mcommit 12575230a250920e43756eed5179c76e28adf72d[m
+Merge: e565aac 59caa6f
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sun Nov 9 20:55:54 2025 +0200
+
+    Merge pull request #12 from ahmedsukkary52-cmd/fix-icon
+    
+    + fix icon
+
+[33mcommit e565aace7253608e503da1be7b4adacdedda18f0[m
+Merge: e77b61d 2218339
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sun Nov 9 20:22:54 2025 +0200
+
+    Merge pull request #11 from ahmedsukkary52-cmd/login-and-register
+    
+    Login and register
+
+[33mcommit 2218339df78c05bb56c83a3a84173a2b98e5bac4[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Sun Nov 9 19:45:38 2025 +0200
+
+    login and register screens
+
+[33mcommit 59caa6f4121998ae83f72178876b5d7d0d8d432c[m[33m ([m[1;31mmovies_app/fix-icon[m[33m, [m[1;32mfix-icon[m[33m)[m
+Author: ahmed <ahmedsukkary52##@gmail.com>
+Date:   Sun Nov 9 19:33:47 2025 +0200
+
+    + fix icon
+
+[33mcommit b8da85e52820e847a0f063ee7c488d7ae057175e[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Sun Nov 9 17:15:52 2025 +0200
+
+    login and register screens
+
+[33mcommit 4a76f47103e31c9ea0f85086a130c11602b3e717[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Sun Nov 9 17:14:00 2025 +0200
+
+    update l10n
+
+[33mcommit f4689f27c8a4ee6058846f6d511976f74c5b18af[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Sun Nov 9 16:53:36 2025 +0200
+
+    add in local files
+
+[33mcommit fce16480eb6764cc9132dcbaf0bf9100f44f8484[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Sun Nov 9 16:45:21 2025 +0200
+
+    add login and register and home routes and update the main
+
+[33mcommit dac25baf2eb10de392b3c627477eb4e20dca55b6[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Sun Nov 9 16:40:09 2025 +0200
+
+    create home screen
+
+[33mcommit e77b61d8df9017e93d9a57a4c3e793adc65b6586[m[33m ([m[1;32mtest[m[33m)[m
+Merge: beffb1f 430cb04
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sun Nov 9 16:39:40 2025 +0200
+
+    Merge pull request #10 from ahmedsukkary52-cmd/feature/reset-password-screen
+    
+    Merge pull request #9 from ahmedsukkary52-cmd/developer
+
+[33mcommit 430cb04fb96e6183c9fe7b73bf436b047a65a1ca[m[33m ([m[1;31mmovies_app/feature/reset-password-screen[m[33m)[m
+Merge: 4775f6f beffb1f
+Author: ahmedsukkary52-cmd <ahmedsukkary52@gmail.com>
+Date:   Sun Nov 9 16:38:49 2025 +0200
+
+    Merge pull request #9 from ahmedsukkary52-cmd/developer
+    
+    Developer
+
+[33mcommit 81933854034e12978b65c981f3d03b8a94c6e2a7[m
+Author: abdallahserag <abdoserag862@gmail.com>
+Date:   Sun Nov 9 16:37:10 2025 +0200
+
+    basic custom textformfield & elevatedbottom & add toggle Switch package
+
+[33mcommit beffb1fd5986bf1848e31064ad40dfead6708e28[m
+Author: ahmedmostafa361 <ahmedmostafamm878@gmail.com>
+Date:   Sat Nov 8 23:04:37 2025 +0200
+
+    + add forget and reset password screen (Ui + validation)
+    
+    :wq
+    :wq
+    :wq
+    :wq
+    :wq
+    :wq
+    :wq:wq#:wq:wq
+    .git/COMMIT_EDITMSG[+] [unix] (16:00 09/11/2025) :wq:wq#:wq:wq:wq
+    :wq
+    
+    :wq
+
+[33mcommit 7e88431abbdf86fe13926114fa0caf07e6f6027d[m
+Merge: 13467f7 7b2af8e
+Author: ahmedmostafa361 <ahmedmostafamm878@gmail.com>
+Date:   Sun Nov 9 15:02:21 2025 +0200
+
+    Merge pull request #8 from ahmedsukkary52-cmd/revert-7-feature/reset-password-screen
+    
+    Revert 7 feature/reset password screen
+    Add forget and reset password screens and validation
+
+[33mcommit 7b2af8ef9d2cda84cab8b897e47cd1419a94ae2d[m[33m ([m[1;31mmovies_app/revert-7-feature/reset-password-screen[m[33m, [m[1;32mrevert-7-feature/reset-password-screen[m[33m)[m
+Author: ahmedmostafa361 <ahmedmostafamm878@gmail.com>
+Date:   Sun Nov 9 14:58:50 2025 +0200
+
+    Revert "+ add forget and reset password screen (Ui + validation)"
+
+[33mcommit 02345981580ec96e122c960a9f67490090c7d481[m
+Merge: cc917d9 4775f6f
+Author: ahmedmostafa361 <ahmedmostafamm878@gmail.com>
+Date:   Sun Nov 9 14:50:34 2025 +0200
+
+    Merge pull request #7 from ahmedsukkary52-cmd/feature/reset-password

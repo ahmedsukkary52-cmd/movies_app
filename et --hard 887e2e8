@@ -1,0 +1,89 @@
+*   [33mb20893d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdeveloper[m[33m, [m[1;31mmovies_app/developer[m[33m)[m Merge pull request #17 from ahmedsukkary52-cmd/login-and-register
+[31m|[m[32m\[m  
+[31m|[m *   [33m887e2e8[m[33m ([m[1;31mmovies_app/login-and-register[m[33m)[m Merge branch 'developer' into login-and-register
+[31m|[m [33m|[m[31m\[m  
+[31m|[m [33m|[m[31m/[m  
+[31m|[m[31m/[m[33m|[m   
+* [33m|[m   [33mbeb4e9c[m Merge pull request #16 from ahmedsukkary52-cmd/feature/update_profile_logic
+[35m|[m[36m\[m [33m\[m  
+[35m|[m * [33m\[m   [33md3a0492[m[33m ([m[1;31mmovies_app/feature/update_profile_logic[m[33m)[m Merge branch 'developer' into feature/update_profile_logic
+[35m|[m [1;31m|[m[35m\[m [33m\[m  
+[35m|[m [1;31m|[m[35m/[m [33m/[m  
+[35m|[m[35m/[m[1;31m|[m [33m|[m   
+* [1;31m|[m [33m|[m   [33mfe153f1[m Merge pull request #15 from ahmedsukkary52-cmd/homeTab
+[1;33m|[m[1;34m\[m [1;31m\[m [33m\[m  
+[1;33m|[m * [1;31m|[m [33m|[m [33mc8c9722[m[33m ([m[1;31mmovies_app/homeTab[m[33m, [m[1;32mhomeTab[m[33m)[m Add home tab UI + Logic fix icons in field and button Add image Add color to loading in theme
+[1;33m|[m[1;33m/[m [1;31m/[m [33m/[m  
+[1;33m|[m * [33m/[m [33m4fe5de6[m add update profile logic. add delete profile.
+[1;33m|[m[1;33m/[m [33m/[m  
+* [33m|[m   [33md51d5e3[m[33m ([m[1;32micons[m[33m)[m Merge pull request #14 from ahmedsukkary52-cmd/login-with-google
+[1;35m|[m[1;36m\[m [33m\[m  
+[1;35m|[m * [33m|[m [33m8841bd2[m[33m ([m[1;31mmovies_app/login-with-google[m[33m, [m[1;32mlogin-with-google[m[33m)[m Add Login with google without called API or Firebase Add Alert Dialog
+[1;35m|[m[1;35m/[m [33m/[m  
+* [33m|[m   [33ma57cea2[m Merge pull request #13 from ahmedsukkary52-cmd/fix-bransh
+[31m|[m[32m\[m [33m\[m  
+[31m|[m * [33m|[m [33m7de3891[m[33m ([m[1;31mmovies_app/fix-bransh[m[33m, [m[1;32mfix-bransh[m[33m)[m + fix build footer + fix custom elevated button + fix custom text field + del custom elevated and text form field + fix update profile + fix onboarding + fix login and register + fix reset passwords + del update name phone + login and home directory + make all avatar connection
+[31m|[m[31m/[m [33m/[m  
+* [33m|[m   [33m1257523[m Merge pull request #12 from ahmedsukkary52-cmd/fix-icon
+[33m|[m[34m\[m [33m\[m  
+[33m|[m * [33m|[m [33m59caa6f[m[33m ([m[1;31mmovies_app/fix-icon[m[33m, [m[1;32mfix-icon[m[33m)[m + fix icon
+* [34m|[m [33m|[m   [33me565aac[m Merge pull request #11 from ahmedsukkary52-cmd/login-and-register
+[34m|[m[36m\[m [34m\[m [33m\[m  
+[34m|[m [36m|[m[34m/[m [33m/[m  
+[34m|[m[34m/[m[36m|[m [33m|[m   
+* [36m|[m [33m|[m   [33me77b61d[m[33m ([m[1;32mtest[m[33m)[m Merge pull request #10 from ahmedsukkary52-cmd/feature/reset-password-screen
+[1;31m|[m[1;32m\[m [36m\[m [33m\[m  
+[1;31m|[m * [36m\[m [33m\[m   [33m430cb04[m[33m ([m[1;31mmovies_app/feature/reset-password-screen[m[33m)[m Merge pull request #9 from ahmedsukkary52-cmd/developer
+[1;31m|[m [1;33m|[m[1;31m\[m [36m\[m [33m\[m  
+[1;31m|[m [1;33m|[m[1;31m/[m [36m/[m [33m/[m  
+[1;31m|[m[1;31m/[m[1;33m|[m [36m|[m [33m|[m   
+[1;31m|[m [1;33m|[m [36m|[m * [33m2467b1f[m login & register authintication
+[1;31m|[m [1;33m|[m [36m|[m * [33mc6b1122[m model login and register responce
+[1;31m|[m [1;33m|[m [36m|[m * [33ma63cadd[m add http package and create model from json to object and add internet access in androidmanifest.xml
+[1;31m|[m [1;33m|[m [36m|[m[36m/[m  
+[1;31m|[m [1;33m|[m * [33m2218339[m login and register screens
+[1;31m|[m [1;33m|[m * [33mb8da85e[m login and register screens
+[1;31m|[m [1;33m|[m * [33m4a76f47[m update l10n
+[1;31m|[m [1;33m|[m * [33mf4689f2[m add in local files
+[1;31m|[m [1;33m|[m * [33mfce1648[m add login and register and home routes and update the main
+[1;31m|[m [1;33m|[m * [33mdac25ba[m create home screen
+[1;31m|[m [1;33m|[m * [33m8193385[m basic custom textformfield & elevatedbottom & add toggle Switch package
+[1;31m|[m [1;33m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;33m|[m   
+* [1;33m|[m [33mbeffb1f[m + add forget and reset password screen (Ui + validation)
+* [1;33m|[m   [33m7e88431[m Merge pull request #8 from ahmedsukkary52-cmd/revert-7-feature/reset-password-screen
+[1;35m|[m[1;36m\[m [1;33m\[m  
+[1;35m|[m * [1;33m|[m [33m7b2af8e[m[33m ([m[1;31mmovies_app/revert-7-feature/reset-password-screen[m[33m, [m[1;32mrevert-7-feature/reset-password-screen[m[33m)[m Revert "+ add forget and reset password screen (Ui + validation)"
+* [1;36m|[m [1;33m|[m   [33m13467f7[m Merge pull request #6 from ahmedsukkary52-cmd/delete-words-from-l10n
+[31m|[m[32m\[m [1;36m\[m [1;33m\[m  
+[31m|[m * [1;36m|[m [1;33m|[m [33mfba7286[m[33m ([m[1;31mmovies_app/delete-words-from-l10n[m[33m, [m[1;32mdelete-words-from-l10n[m[33m)[m + delete words from l10n
+[31m|[m[31m/[m [1;36m/[m [1;33m/[m  
+* [1;36m|[m [1;33m|[m   [33m20a6a9f[m Merge pull request #5 from ahmedsukkary52-cmd/add-words-to-localization
+[33m|[m[34m\[m [1;36m\[m [1;33m\[m  
+[33m|[m * [1;36m\[m [1;33m\[m   [33m58a4555[m[33m ([m[1;31mmovies_app/add-words-to-localization[m[33m)[m Merge branch 'developer' into add-words-to-localization
+[33m|[m [35m|[m[33m\[m [1;36m\[m [1;33m\[m  
+[33m|[m [35m|[m[33m/[m [1;36m/[m [1;33m/[m  
+[33m|[m[33m/[m[35m|[m [1;36m|[m [1;33m|[m   
+* [35m|[m [1;36m|[m [1;33m|[m   [33m197deaa[m Merge pull request #3 from ahmedsukkary52-cmd/onboarding
+[1;31m|[m[1;32m\[m [35m\[m [1;36m\[m [1;33m\[m  
+[1;31m|[m * [35m\[m [1;36m\[m [1;33m\[m   [33m42c4b57[m[33m ([m[1;31mmovies_app/onboarding[m[33m, [m[1;32monboarding[m[33m)[m Merge branch 'developer' into onboarding
+[1;31m|[m [1;33m|[m[1;31m\[m [35m\[m [1;36m\[m [1;33m\[m  
+[1;31m|[m [1;33m|[m[1;31m/[m [35m/[m [1;36m/[m [1;33m/[m  
+[1;31m|[m[1;31m/[m[1;33m|[m [35m|[m [1;36m|[m [1;33m|[m   
+* [1;33m|[m [35m|[m [1;36m|[m [1;33m|[m   [33m712043b[m Merge pull request #1 from ahmedsukkary52-cmd/feature/update_profile
+[1;35m|[m[1;36m\[m [1;33m\[m [35m\[m [1;36m\[m [1;33m\[m  
+[1;35m|[m * [1;33m\[m [35m\[m [1;36m\[m [1;33m\[m   [33m828b805[m[33m ([m[1;31mmovies_app/feature/update_profile[m[33m, [m[1;32mfeature/update_profile[m[33m)[m add update detalis.
+[1;35m|[m [31m|[m[1;35m\[m [1;33m\[m [35m\[m [1;36m\[m [1;33m\[m  
+[1;35m|[m [31m|[m[1;35m/[m [1;33m/[m [35m/[m [1;36m/[m [1;33m/[m  
+[1;35m|[m[1;35m/[m[31m|[m [1;33m|[m [35m|[m [1;36m|[m [1;33m|[m   
+[1;35m|[m * [1;33m|[m [35m|[m [1;36m|[m [1;33m|[m [33mf5d564c[m add update screen.
+[1;35m|[m [32m|[m [1;33m|[m * [1;36m|[m [1;33m|[m [33m2e47913[m[33m ([m[1;32madd-words-to-localization[m[33m)[m + add words to l10n + delete file from l10n
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m [1;36m|[m [1;33m|[m * [33m0e6115b[m[33m ([m[1;31mmovies_app/master[m[33m, [m[1;31mmovies_app/HEAD[m[33m, [m[1;32mmaster[m[33m)[m Revert "Merge pull request #7 from ahmedsukkary52-cmd/feature/reset-password-screen"
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m [1;36m|[m [1;33m|[m[1;36m/[m  
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m [1;36m|[m[1;36m/[m[1;33m|[m   
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m * [1;33m|[m [33m0234598[m Merge pull request #7 from ahmedsukkary52-cmd/feature/reset-password-screen
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m [34m|[m[1;33m\[m[1;33m|[m 
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m [34m|[m *   [33m4775f6f[m Merge branch 'master' into feature/reset-password-screen
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m [34m|[m [36m|[m[34m\[m  
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m [34m|[m [36m|[m[34m/[m  
+[1;35m|[m [32m|[m [1;33m|[m [32m|[m
