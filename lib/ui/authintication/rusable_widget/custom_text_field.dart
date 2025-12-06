@@ -7,24 +7,28 @@ import '../../../Utils/text_app.dart';
 typedef OnValidator = String? Function(String?)?;
 
 class CustomTextField extends StatefulWidget {
-  final Widget prefixIconName;
+  final Widget? prefixIconName;
   final bool hasSuffix;
   final bool obsecureText;
-  final bool isNumber ;
+  final bool isNumber;
+
   final String hintText;
   final TextEditingController? controller;
   final OnValidator validator;
-  final String? prefixTxt ;
+  final String? prefixTxt;
+  final Function(String)? onChange;
+
   const CustomTextField({
     super.key,
-    required this.prefixIconName,
+    this.prefixIconName,
     required this.hintText,
-    required this.controller,
-    required this.validator,
+    this.controller,
+    this.validator,
     this.hasSuffix = false,
     this.obsecureText = false,
     this.isNumber = false,
-    this.prefixTxt = ''
+    this.prefixTxt = '',
+    this.onChange,
   });
 
   @override
@@ -33,6 +37,7 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late bool isObsecured;
+
   @override
   void initState() {
     super.initState();
@@ -42,7 +47,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType:widget.isNumber? TextInputType.numberWithOptions():null,
+      onChanged: widget.onChange,
+      keyboardType: widget.isNumber ? TextInputType.numberWithOptions() : null,
       style: TextApp.regular16White,
       cursorColor: ColorApp.whiteColor,
       controller: widget.controller,
@@ -50,7 +56,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       obscureText: isObsecured,
       decoration: InputDecoration(
         prefixText: widget.prefixTxt,
-        hoverColor:ColorApp.whiteColor,
+        hoverColor: ColorApp.whiteColor,
         filled: true,
         fillColor: ColorApp.grayColor,
         enabledBorder: buildOutlineInputBorder(ColorApp.transparent),
@@ -59,18 +65,34 @@ class _CustomTextFieldState extends State<CustomTextField> {
         focusedErrorBorder: buildOutlineInputBorder(ColorApp.primaryWallow),
         hintText: widget.hintText,
         hintStyle: TextApp.regular16White,
-        prefixIcon: Container(padding: EdgeInsets.symmetric(horizontal: context.width*.03,vertical: context.height*.012),width: context.width*.03,height: context.height*.01,child: widget.prefixIconName,),
+        prefixIcon: Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: context.width * .03,
+            vertical: context.height * .012,
+          ),
+          width: context.width * .03,
+          height: context.height * .01,
+          child: widget.prefixIconName,
+        ),
         suffixIcon: widget.hasSuffix
             ? InkWell(
-                onTap: () {
-                  setState(() {
-                    isObsecured = !isObsecured;
-                  });
-                },
-                child: isObsecured
-                    ? Icon(Icons.visibility_off, color: ColorApp.whiteColor, size: 26)
-                    : Icon(Icons.visibility, color: ColorApp.whiteColor, size: 26),
-              )
+          onTap: () {
+            setState(() {
+              isObsecured = !isObsecured;
+            });
+          },
+          child: isObsecured
+              ? Icon(
+            Icons.visibility_off,
+            color: ColorApp.whiteColor,
+            size: 26,
+          )
+              : Icon(
+            Icons.visibility,
+            color: ColorApp.whiteColor,
+            size: 26,
+          ),
+        )
             : null,
       ),
     );
