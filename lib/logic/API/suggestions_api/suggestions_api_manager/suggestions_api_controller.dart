@@ -1,27 +1,19 @@
 import 'package:team_flutter_6_movie_app/logic/API/suggestions_api/suggestions_api_manager/suggestions_api_manager.dart';
-import 'package:team_flutter_6_movie_app/logic/API/suggestions_api/suggestions_model/suggestions_model.dart';
+
+import '../suggestions_model/suggestions_model.dart';
+
 class SuggestionsController {
-  bool isLoading = false;
-  List<Movies> suggestions = [];
-
-  Future<void> fetchSuggestions({required String movieId}) async {
-    isLoading = true;
-    suggestions = [];
-
+  Future<SuggestionsResponse> fetchSuggestions({required num movieId}) async {
     try {
-      final SuggestionsResponse response =
-      await SuggestionsApiManager.getMovieSuggestion(movieId: movieId);
-
-      if (response.status == "ok" && response.data?.movies != null) {
-        suggestions = response.data!.movies!;
-      } else {
-        suggestions = [];
-      }
+      final response = await SuggestionsApiManager.getMovieSuggestion(movieId: movieId);
+      return response;
     } catch (e) {
       print('Error fetching suggestions: $e');
-      suggestions = [];
-    } finally {
-      isLoading = false;
+      return SuggestionsResponse(
+        status: "error",
+        statusMessage: e.toString(),
+        data: Data(movies: []),
+      );
     }
   }
 }

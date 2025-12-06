@@ -9,12 +9,13 @@ class CategorySection extends StatelessWidget {
   final String genre;
   final List<Movies> movies;
   final VoidCallback onSeeMore;
-
+  final Function(Movies movie) onTabMovie;
   const CategorySection({
     super.key,
     required this.genre,
     required this.movies,
     required this.onSeeMore,
+    required this.onTabMovie,
   });
 
   @override
@@ -41,7 +42,8 @@ class CategorySection extends StatelessWidget {
             itemCount: movies.length,
             separatorBuilder: (context, index) => SizedBox(width: context.width * .04),
             itemBuilder: (context, index) {
-              return MovieItem(isSmall: true, movie: movies[index]);
+              final movie = movies[index];
+              return InkWell( onTap: () => onTabMovie(movie),child: MovieItem(isSmall: true, movie: movie) ,);
             },
           ),
         ),

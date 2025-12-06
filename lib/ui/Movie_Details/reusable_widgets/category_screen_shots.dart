@@ -13,7 +13,7 @@ class CategoryScreenShots extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16)
       ),
-      child: Image.asset(screenShotImage,fit: BoxFit.cover,),
+      child: Image.network(screenShotImage,fit: BoxFit.cover,),
     );
   }
 }

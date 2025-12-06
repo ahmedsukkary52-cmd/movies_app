@@ -8,6 +8,7 @@ import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/cubits/cubitToken/token_cubit.dart';
 import 'package:team_flutter_6_movie_app/cubits/login_with_google_cubit/google_login_cubit.dart';
 import 'package:team_flutter_6_movie_app/ui/Main%20tab%20Bottom%20Nav%20Bar/main_screen_bottomNav.dart';
+import 'package:team_flutter_6_movie_app/ui/Movie_Details/movie_details_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/login/login_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/register/register_screen.dart';
 import 'package:team_flutter_6_movie_app/ui/explore_screen/explore_screen.dart';
@@ -65,6 +66,7 @@ class MoviesApp extends StatelessWidget {
             RoutesApp.forgetPasswordScreen: (context) => ForgetPasswordScreen(),
             RoutesApp.resetPasswordScreen: (context) => ResetPassswordScreen(),
             RoutesApp.exploreScreen: (context) => ExploreScreen(),
+            RoutesApp.movieDetails: (context) => MovieDetailsScreen(),
           },
           localizationsDelegates: const [
             AppLocalizations.delegate,
