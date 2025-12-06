@@ -10,4 +10,5 @@ class RoutesApp {
   static const String profileScreen = 'profileScreen';
   static const String searchScreen = 'searchScreen';
   static const String exploreScreen = 'exploreScreen';
+  static const String movieDetails = 'movieDetails';
 }

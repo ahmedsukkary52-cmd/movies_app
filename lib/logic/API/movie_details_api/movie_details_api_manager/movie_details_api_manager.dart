@@ -8,13 +8,15 @@ import '../movie_details_model/movie_details_model.dart';
 
 class MoviesDetailsApiManager{
 
-  Future<MovieDetailsResponse> getMoviesDetails({required String movieId})async{
-    Uri url = Uri.http(
-        MovieDetailsApiConstant.serverName,
-        MovieDetailsEndpoint.apiMovieDetails,
-        {
-          'movie_id': movieId
-        }
+  Future<MovieDetailsResponse> getMoviesDetails({required num movieId})async{
+    Uri url = Uri.https(
+      MovieDetailsApiConstant.serverName,
+      "${MovieDetailsApiConstant.apiBasePath}${MovieDetailsEndpoint.apiMovieDetails}",
+      {
+        MovieDetailsEndpoint.movieDetails: movieId.toString(),
+        MovieDetailsEndpoint.withCast: 'true',
+        MovieDetailsEndpoint.withImage: 'true',
+      },
     );
     try{
       var response = await http.get(url);

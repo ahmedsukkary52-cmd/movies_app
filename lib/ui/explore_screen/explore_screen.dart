@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
+import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 
 import '../../cubits/bottomNavBarCubit/bottom_nav_cubit.dart';
 import '../../logic/API/movies_list_api/api_manager/movies_controller.dart';
@@ -131,7 +132,11 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       itemCount: moviesGenres[selectedGenre]?.length ?? 0,
                       itemBuilder: (context, index) {
                         final movie = moviesGenres[selectedGenre]![index];
-                        return MovieItem(movie: movie, isSmall: true);
+                        return InkWell(
+                          onTap: (){
+                            Navigator.pushNamed(context, RoutesApp.movieDetails , arguments: movie);
+                          },
+                            child: MovieItem(movie: movie, isSmall: true));
                       },
                     ),
                   ),

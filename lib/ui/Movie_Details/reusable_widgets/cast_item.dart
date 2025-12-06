@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:team_flutter_6_movie_app/Utils/color_App.dart';
+import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
 
 import '../../../Utils/text_app.dart';
 class CastItem extends StatelessWidget {
@@ -20,12 +21,13 @@ class CastItem extends StatelessWidget {
           Expanded(
               flex: 1,
               child:Container(
+                height: context.height*.09,
                 margin: EdgeInsets.all(10),
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10)
                 ),
-                child: Image.asset(castImage,fit: BoxFit.cover,),
+                child: Image.network(castImage,fit: BoxFit.cover,),
               )
           ),
           Expanded(

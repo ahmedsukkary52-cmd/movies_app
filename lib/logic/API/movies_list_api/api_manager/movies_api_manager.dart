@@ -9,7 +9,7 @@ class MoviesApiManager {
       ({int page = 1 , int limit = 20}) async{
     try{
       final String url =
-          "${MoviesApiConstant.baseUrl}${MoviesApiEndpoint.listMovies}?${MoviesApiConstant.page}=$page&${MoviesApiConstant.limit}=$limit";
+          "${MoviesApiConstant.baseUrl}${MoviesApiEndpoint.listMovies}?${MoviesApiConstant.page}=$page&${MoviesApiConstant.limit}=$limit&with_cast=true&with_images=true";
       final response = await http.get(Uri.parse(url));
    if(response.statusCode != 200){
      throw Exception("Server Error: ${response.statusCode}");

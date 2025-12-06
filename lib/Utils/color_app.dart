@@ -10,4 +10,5 @@ class ColorApp {
   static const Color grayTextColor = Color(0xFFADADAD);
   static const Color transparentWhiteText = Color(0x99FFFFFF);
   static const Color transparent = Colors.transparent;
+  static const Color transparentBlack = Color(0xA5000000);
 }

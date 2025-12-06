@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:team_flutter_6_movie_app/Utils/assets_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/extension/extension.dart';
+import 'package:team_flutter_6_movie_app/Utils/routes_app.dart';
 import 'package:team_flutter_6_movie_app/Utils/text_app.dart';
 import 'package:team_flutter_6_movie_app/ui/home/build_category_section.dart';
 import 'package:team_flutter_6_movie_app/ui/home/movie_item.dart';
@@ -79,7 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: controller.allMovies.length,
                   itemBuilder: (context, index, realIndex) {
                     final movie = controller.allMovies[index];
-                    return MovieItem(movie: movie, isSmall: false);
+                    return InkWell(
+                      child: MovieItem(movie: movie, isSmall: false),
+                      onTap: (){onTabMovie(movie);},
+                    );
                   },
                   options: CarouselOptions(
                     height: context.height * .35,
@@ -128,12 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     genre: g,
                     movies: moviesByGenre[g] ?? [],
                     onSeeMore: () {
-                      // نحدد الـ genre المختار في Cubit
                       context.read<NavigationCubit>().selectGenre(g);
-                      // بعد كده نروح للـ Explore tab
                       context.read<NavigationCubit>().changeTab(2);
-                    }
-
+                    }, onTabMovie: (Movies movie) {onTabMovie(movie);},
                 )),
             ],
           ),
@@ -141,4 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+  void onTabMovie (movie){
+    Navigator.pushNamed(context, RoutesApp.movieDetails , arguments: movie);
+}
 }
