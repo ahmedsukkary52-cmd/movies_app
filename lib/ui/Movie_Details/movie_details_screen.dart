@@ -11,6 +11,7 @@ import 'package:team_flutter_6_movie_app/logic/API/suggestions_api/suggestions_m
     hide Movies;
 import 'package:team_flutter_6_movie_app/ui/Movie_Details/reusable_widgets/cast_item.dart';
 import 'package:team_flutter_6_movie_app/ui/Movie_Details/reusable_widgets/category_screen_shots.dart';
+import 'package:team_flutter_6_movie_app/ui/Movie_Details/reusable_widgets/genre_item.dart';
 import 'package:team_flutter_6_movie_app/ui/Movie_Details/reusable_widgets/rate_widget.dart';
 import 'package:team_flutter_6_movie_app/ui/Movie_Details/reusable_widgets/similar_movie_item.dart';
 import 'package:team_flutter_6_movie_app/ui/authintication/rusable_widget/custom_elevated_button.dart';
@@ -93,6 +94,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     final screenshots = movieDetails?.largeScreenshots ?? [];
     final castList = movieDetails?.cast ?? [];
     final similarMovies = suggestions.data?.movies ?? [];
+    final genresList = movieDetails?.genres ?? [];
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -269,9 +271,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                         style: TextApp.regular16White,
                       )
                     : ListView.separated(
-                        padding: EdgeInsetsGeometry.only(
-                          bottom: context.height * .02,
-                        ),
+                  padding: EdgeInsets.zero,
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {
@@ -286,6 +286,26 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                             SizedBox(height: context.height * 0.01),
                         itemCount: castList.length,
                       ),
+                SizedBox(height: context.height * .02,),
+                Text('Genres', style: TextApp.bold24White),
+                SizedBox(height: context.height * .02,),
+                genresList.isEmpty ?
+                    Text('Not Genres Available Now',style: TextApp.regular16White,):
+                GridView.builder(gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,
+                  mainAxisExtent: context.height * .052,
+                  crossAxisSpacing: context.width * .022,
+                  mainAxisSpacing: context.width * .04,
+                ),
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: genresList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                 return GenreItem(genre: genresList[index]);
+                  },
+                ),
+                SizedBox(height: context.height*.1,)
               ],
             ),
           ),
